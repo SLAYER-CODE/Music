@@ -51,7 +51,15 @@ class StreamResolver(context: Context) {
 
     fun removeContentLength(id: String) {
         contentLengths.remove(id)
-        prefs.edit().remove("cl_$id").remove("mt_$id").remove("dur_$id").apply()
+        prefs.edit().remove("cl_$id").remove("mt_$id").remove("dur_$id").remove("lastUrl_$id").apply()
+    }
+
+    private fun setLastResolvedUrl(id: String, url: String) {
+        prefs.edit().putString("lastUrl_$id", url).apply()
+    }
+
+    private fun getLastResolvedUrl(id: String): String? {
+        return prefs.getString("lastUrl_$id", null)
     }
 
     private val durations = ConcurrentHashMap<String, String>().apply {
@@ -89,6 +97,13 @@ class StreamResolver(context: Context) {
         if (cached != null) {
             if (System.currentTimeMillis() < cached.expiresAt) {
                 Log.d(TAG, "resolveStreamUrl: using cached URL, expires in ${cached.expiresAt - System.currentTimeMillis()}ms")
+                if (cached.contentLength <= 0L) {
+                    val storedCl = contentLengths[songId]
+                    if (storedCl != null && storedCl > 0L) {
+                        Log.d(TAG, "resolveStreamUrl: overriding cached contentLength=0 with stored=$storedCl")
+                        return@runBlocking cached.copy(contentLength = storedCl)
+                    }
+                }
                 return@runBlocking cached
             }
             Log.d(TAG, "resolveStreamUrl: cached URL expired")
@@ -262,6 +277,10 @@ class StreamResolver(context: Context) {
         offlineFallbackCache[rawUri] = true
     }
 
+    fun clearOfflineFallback(rawUri: String) {
+        offlineFallbackCache.remove(rawUri)
+    }
+
     fun isOfflineFallback(rawUri: String): Boolean = offlineFallbackCache.containsKey(rawUri)
 
     fun markOfflineFallbackForCached(rawUris: Collection<String>, vararg caches: Cache) {
@@ -314,7 +333,9 @@ class StreamResolver(context: Context) {
                 return@Resolver offSpec
             } else try {
                 val cached = resolveStreamUrl(uriStr)
-                setContentLength(uriStr, cached.contentLength)
+                if (cached.contentLength > 0L) {
+                    setContentLength(uriStr, cached.contentLength)
+                }
                 val prevUrl = lastResolvedUrl[uriStr]
                 if (prevUrl != null && prevUrl != cached.url) {
                     Log.d(TAG, "resolver: URL changed for $uriStr, purging stale cached data")
@@ -323,6 +344,7 @@ class StreamResolver(context: Context) {
                     }
                 }
                 lastResolvedUrl[uriStr] = cached.url
+                setLastResolvedUrl(uriStr, cached.url)
                 cached.url to cached.contentLength
             } catch (e: Exception) {
                 val spans = caches.flatMap { it.getCachedSpans(rawUri).toList() }

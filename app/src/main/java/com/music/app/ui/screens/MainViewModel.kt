@@ -266,12 +266,17 @@ class MainViewModel(
         initCacheListener()
         loadSearchState()
 
-        // Load persisted cache state — no IO to cache DB
+        // Load persisted cache state
         _cachedPercentages.value = loadCachePercentages()
-        _currentItem.value?.id?.let { id ->
-            val loaded = loadCacheSpans(id)
-            if (loaded.isNotEmpty()) {
-                _currentCachedSpans.value = loaded
+        // If online, scan current item's actual cache to correct stale prefs
+        if (_isOnline.value) {
+            _recentIds.value.firstOrNull()?.let { id ->
+                loadCacheSpans(id).let { loaded ->
+                    if (loaded.isNotEmpty()) {
+                        _currentCachedSpans.value = loaded
+                        viewModelScope.launch { scanCurrentCacheSpans() }
+                    }
+                }
             }
         }
         viewModelScope.launch { loadCachedThumbnails() }
@@ -448,6 +453,11 @@ class MainViewModel(
                             _currentItem.value = currentPlaylist[index]
                         }
                         _loadingItemIds.value = emptySet()
+                        // Load persisted spans immediately for instant bar
+                        _currentItem.value?.id?.let { id ->
+                            val loaded = loadCacheSpans(id)
+                            if (loaded.isNotEmpty()) _currentCachedSpans.value = loaded
+                        }
                         consecutiveErrors = 0
                         lastErrorPosMs = -1L
                         updatePosition(connectedPlayer)
@@ -579,6 +589,22 @@ class MainViewModel(
             override fun onAvailable(network: Network) {
                 _isOnline.value = true
                 Log.d(TAG, "monitorConnectivity: online")
+                _error.value = null
+                // Remove offline fallback markers so resolver uses online resolution
+                currentPlaylist.filterIsInstance<MusicItem.YouTube>()
+                    .forEach { streamResolver.clearOfflineFallback("yt://${it.id}") }
+                // Recover player on main thread (MediaController requires it)
+                viewModelScope.launch {
+                    val p = player
+                    if (p != null && (p.playbackState == androidx.media3.common.Player.STATE_IDLE ||
+                            p.playbackState == androidx.media3.common.Player.STATE_ENDED ||
+                            p.playerError != null)) {
+                        Log.d(TAG, "monitorConnectivity: recovering player from error/ended state")
+                        p.stop()
+                        p.prepare()
+                        p.play()
+                    }
+                }
             }
 
             override fun onLost(network: Network) {
@@ -611,10 +637,14 @@ class MainViewModel(
     }
 
     private suspend fun scanCurrentCacheSpans() {
+        if (!_isOnline.value) {
+            Log.d(TAG, "cacheSpans: offline, trusting persisted state")
+            return
+        }
         val item = _currentItem.value
         if (item is MusicItem.YouTube) {
             val key = "yt://${item.id}"
-            val dur = _duration.value
+            val dur = _duration.value.coerceAtLeast(0L)
             val spans = withContext(Dispatchers.IO) { streamCache.getCachedSpans(key) }
             val cl = streamResolver.contentLengths[item.id]
             val assumedBitrate = 16384L
@@ -640,9 +670,7 @@ class MainViewModel(
 
             // No cached data yet — wait for Cache.Listener to fire when data arrives
             if (totalCached <= 0L) {
-                Log.d(TAG, "cacheSpans: no cached data yet, skipping")
-                _currentCachedSpans.value = emptyList()
-                saveCacheSpans(item.id, emptyList())
+                Log.d(TAG, "cacheSpans: no cached data yet, keeping persisted state")
                 return
             }
 
@@ -661,8 +689,7 @@ class MainViewModel(
                 }
                 saveCacheSpans(item.id, _currentCachedSpans.value)
             } else {
-                Log.d(TAG, "cacheSpans: skipping pct/span save (totalBytes=$totalBytes dur=$dur) — dur not ready yet")
-                _currentCachedSpans.value = emptyList()
+                Log.d(TAG, "cacheSpans: skipping pct/span save (totalBytes=$totalBytes dur=$dur) — dur not ready yet, keeping persisted state")
             }
         } else {
             Log.d(TAG, "cacheSpans: item is not YouTube (${item?.javaClass?.simpleName})")
@@ -688,6 +715,7 @@ class MainViewModel(
     }
 
     private fun checkAndScan(span: CacheSpan) {
+        if (!_isOnline.value) return
         val current = _currentItem.value
         if (current is MusicItem.YouTube && span.key == "yt://${current.id}") {
             viewModelScope.launch { scanCurrentCacheSpans() }
@@ -788,6 +816,7 @@ class MainViewModel(
             }
             streamResolver.removeContentLength(id)
             _cachedPercentages.value = _cachedPercentages.value - id
+            cacheStatePrefs.edit().remove("pct_$id").remove("spans_$id").apply()
 
             musicScanner.scan()
 
@@ -868,6 +897,8 @@ class MainViewModel(
         val index = playlist.indexOfFirst { it.id == item.id }
         currentPlaylist = if (index >= 0) playlist else listOf(item)
         _currentItem.value = item
+        val loaded = loadCacheSpans(item.id)
+        if (loaded.isNotEmpty()) _currentCachedSpans.value = loaded
         if (item is MusicItem.YouTube) {
             _loadingItemIds.value = _loadingItemIds.value + item.id
         }
@@ -954,6 +985,15 @@ class MainViewModel(
             .filterIsInstance<MusicItem.YouTube>()
             .map { "yt://${it.id}" }
         streamResolver.markOfflineFallbackForCached(nextUris, streamCache)
+        val hasCachedNext = nextUris.any { uri ->
+            streamCache.getCachedSpans(uri).any { it.length > 0L }
+        }
+        if (nextUris.isEmpty() || !hasCachedNext) {
+            Log.d(TAG, "skipOfflineTrack: no cached items remaining, stopping")
+            player.stop()
+            _error.value = "No cached tracks available offline"
+            return
+        }
         player.seekToNextMediaItem()
         player.play()
         _error.value = null
