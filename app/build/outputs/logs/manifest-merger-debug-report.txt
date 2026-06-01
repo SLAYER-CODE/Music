@@ -1,0 +1,557 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:2:1-56:12
+INJECTED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:2:1-56:12
+INJECTED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:2:1-56:12
+INJECTED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:2:1-56:12
+MERGED from [androidx.navigation:navigation-runtime-android:2.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/847c1d6c1c7a0a29a458a5b91053fb5d/transformed/navigation-runtime-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common-android:2.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/1251bd312b6d492802b6f664c28360fe/transformed/navigation-common-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-compose-android:2.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/2f9269913215e29d41b86da3572efda0/transformed/navigation-compose-release/AndroidManifest.xml:2:1-7:12
+MERGED from [io.insert-koin:koin-compose-android:4.1.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/76b607fccffb4338d6bfb95a2ee74470/transformed/koin-compose-release/AndroidManifest.xml:2:1-7:12
+MERGED from [io.insert-koin:koin-android:4.1.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/3292e2b0a3f8cf658ef8f1e9bf798f27/transformed/koin-android-4.1.1/AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt.coil3:coil-network-ktor3-android:3.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a63f88615d3ac7f5faf8b5cd83a2d681/transformed/coil-network-ktor3/AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt.coil3:coil-compose-android:3.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/95d72f3b525b7c95c585c14dd747df6a/transformed/coil-compose/AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt.coil3:coil-android:3.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/c536435b38f5962f86210607a6970c25/transformed/coil/AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt.coil3:coil-compose-core-android:3.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/cdf7224f798a949f2b3a9742b87c7fdd/transformed/coil-compose-core/AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt.coil3:coil-network-core-android:3.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/17e82f04d68c10b02cb21f6d550238b3/transformed/coil-network-core/AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt.coil3:coil-core-android:3.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/3bfc12f6019c3b3fa3aa1dcdd671b4a6/transformed/coil-core/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.appcompat:appcompat-resources:1.7.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/ca226196dff6d8085050fb201a651918/transformed/appcompat-resources-1.7.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.appcompat:appcompat:1.7.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/6e467d8501fb16eb10e0e2565e6b5aa5/transformed/appcompat-1.7.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.fragment:fragment:1.8.9] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9855272ffa98bd73def5900f17c093ce/transformed/fragment-1.8.9/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.fragment:fragment-ktx:1.8.9] /home/Tiopaz/.gradle/caches/9.4.0/transforms/ac5d62e2e7333dfa5feb3434d4ffc85d/transformed/fragment-ktx-1.8.9/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material3:material3-android:1.3.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/16706269c01e926845d70c9306908173/transformed/material3-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.material:material-icons-extended-android:1.7.8] /home/Tiopaz/.gradle/caches/9.4.0/transforms/95906061cf97009f934eaa7911a0bb5e/transformed/material-icons-extended-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.8] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a1659204f00887a56dce982caa28cc50/transformed/material-icons-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.accompanist:accompanist-drawablepainter:0.37.3] /home/Tiopaz/.gradle/caches/9.4.0/transforms/bf1d51e421a2205116460bf30e1b2e7d/transformed/accompanist-drawablepainter-0.37.3/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.compose.material:material-android:1.7.8] /home/Tiopaz/.gradle/caches/9.4.0/transforms/c969c746628574fb7fce8e04013c6c9c/transformed/material-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-ripple-android:1.7.8] /home/Tiopaz/.gradle/caches/9.4.0/transforms/c59f6dd334ce81e8ed9eb844b4a61378/transformed/material-ripple-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-core-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/cc74dfb4dfafa88c53cc3baaa4c393c7/transformed/animation-core/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/8b235adb0a61d90e574c4a9d1067ff70/transformed/animation/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/0580dfacfbfcd28a0daa70a05f4bc00e/transformed/foundation-layout/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/e462860153d8c7783d1a52021036ff76/transformed/foundation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/0c5f7c6ee04106b3071f83c75e02ebe1/transformed/ui-tooling-data/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/1db2b4e91212d23a3062261e2d8ca637/transformed/ui-tooling-preview/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.ui:ui-unit-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/ec726c8302d7f3c9cd9896f59b728865/transformed/ui-unit/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-graphics-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/034022a01697b70f0a3e0fd97e0fe8ba/transformed/ui-graphics-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-geometry-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/17bb492cc425a986cf006c8b160b8536/transformed/ui-geometry/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-util-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/91fc6ed4f3a5c3a3a7269ceaf4310e1e/transformed/ui-util/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-text-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/27913d564e433bbbd309f2c05868b3ca/transformed/ui-text/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/c59a197e430efb5449f239e5bf8969dd/transformed/ui-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/8001912852591ac61dbc05320bebc899/transformed/ui-tooling/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.activity:activity-compose:1.10.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/f68566c35b97569494b1a5614ee31309/transformed/activity-compose-1.10.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity:1.10.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/0dcd091e70295513c5e6a498bdf7b127/transformed/activity-1.10.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity-ktx:1.10.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/6fe03f7d68a1589e5a823f8fdae87168/transformed/activity-ktx-1.10.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.loader:loader:1.0.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/34fe44d12aee9097dc2951d0a8b52df0/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9fe3b953f9736ea07e95ffd745e50d29/transformed/lifecycle-livedata-2.10.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/0f6e2285126499ae5091ce5e2df579c6/transformed/lifecycle-livedata-core-2.10.0/AndroidManifest.xml:17:1-22:12
+MERGED from [io.insert-koin:koin-core-viewmodel-android:4.1.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/3d4db94dbcce0ce6d123c84fa1a41a7b/transformed/koin-core-viewmodel-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/64350ac3cbd4c1aba9401e2aa3dc8165/transformed/lifecycle-viewmodel-savedstate/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/20f8a34915ad4f2c327b3b1745b81242/transformed/lifecycle-livedata-core-ktx-2.10.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/91505ef20a81012ed19cbc820e58b0b4/transformed/lifecycle-viewmodel-2.10.0/AndroidManifest.xml:2:1-5:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/83cb4daee31e031a4c498b24b532d0ab/transformed/lifecycle-viewmodel/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.runtime:runtime-annotation-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/1c37c62e1e4e09c5f570fa32d7a2c516/transformed/runtime-annotation/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/c35d101a128be22dfffc38e7bd68f0e2/transformed/runtime/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9c98af01ce7b054180b5df1e8a184ccd/transformed/runtime-saveable/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.savedstate:savedstate-compose-android:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/34a633d2cb4cd3266cfe2ed076566ddb/transformed/savedstate-compose/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/217ad14a1de4de56df0dc683e0f91c52/transformed/savedstate-ktx-1.4.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.savedstate:savedstate-android:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/291285147b1363dbe132166dca07a4fc/transformed/savedstate/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-session:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/26bad68db4905f6e62584a81a31809ae/transformed/media3-session-1.9.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-datasource-okhttp:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/326cbaacc055efe9232562597d1fa543/transformed/media3-datasource-okhttp-1.9.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-datasource:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/057d3bb54768be30221aacf556a61583/transformed/media3-datasource-1.9.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-database:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/fdc7b927ad0e0421ebd54b055a682a02/transformed/media3-database-1.9.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-extractor:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/190d34426e3b04fd02b2fb6ff682e71d/transformed/media3-extractor-1.9.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-container:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/0c7a8017871a4106d75493fd501d8ec1/transformed/media3-container-1.9.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-decoder:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/43a744647422646889caa3624a7616bc/transformed/media3-decoder-1.9.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-common:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a5a75449db51d7bb73d26becbf5a69be/transformed/media3-common-1.9.2/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.media3:media3-exoplayer:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/d38b82b2674aa8e4d3da026924630712/transformed/media3-exoplayer-1.9.2/AndroidManifest.xml:17:1-25:12
+MERGED from [androidx.media:media:1.7.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/7744eec26f28770c3af388b09676ddb9/transformed/media-1.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/f28f5e664941ca4777adf10d874366c5/transformed/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/60a0bad54defc1627cb2fc3f60df60de/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/b243274c8ddf37453acd0484c56987fa/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/3b6edc75a6dd831a3d26f2e23535cc8a/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/539a59fc12094fbf2d26d67deda518f4/transformed/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/2bc01d317d9d6eda18a16fe03449a204/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.core:core-ktx:1.16.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/2061360f6fb21f1c6c74cf409bf82681/transformed/core-ktx-1.16.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.autofill:autofill:1.0.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/f0185e0a906353565dd857031695f65a/transformed/autofill-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/7a2a086b4d21047f3a2d56da3a7f4e98/transformed/emoji2-views-helper-1.4.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9b0a43295abd7a171d80685f1251b89a/transformed/emoji2-1.4.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.graphics:graphics-path:1.0.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/02f756379176cf2cc4ab6d5e7ae0ffb1/transformed/graphics-path-1.0.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.core:core:1.16.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a53db831b64e39c3b95a7a07f85692b1/transformed/core-1.16.0/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/e97900a0657390ca3dc5f357395a3a86/transformed/lifecycle-runtime/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/fd610984f2d5b0983961bbde75998097/transformed/lifecycle-viewmodel-ktx-2.10.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/bc730318c71d66d45c344cf9d74d9bc2/transformed/lifecycle-runtime-compose/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/087bbf1e46a7264f5c97921b65d943a0/transformed/lifecycle-viewmodel-compose/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/733df01ad9e175f314d2c5823a3b8d92/transformed/lifecycle-runtime-ktx/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/963b6e6935f81cb11cd2c16f1bd8689d/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.room:room-runtime-android:2.7.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/183fafaa0a02ad2f478c322069478910/transformed/room-runtime-release/AndroidManifest.xml:17:1-31:12
+MERGED from [androidx.room:room-ktx:2.7.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/c1ef7b8c4fe291c4098a840fec29d498/transformed/room-ktx-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/5a9d3b649f850bb71ae0ff1e3e9e38a4/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/913903228ba11ef4857a58768a3563d8/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/8f3732ed394abba9a43abf1cbc0c0b80/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.squareup.okhttp3:okhttp-android:5.3.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/f2ae3dec9c01f889385b30abc2c5fc8a/transformed/okhttp-release/AndroidManifest.xml:2:1-22:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/d1fe38d71b409d899dba5e7201cb2c0e/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.sqlite:sqlite-framework-android:2.5.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/17a1d94f4e5a974a1ec109ad635c3534/transformed/sqlite-framework-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.sqlite:sqlite-android:2.5.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/5878d55db1df2b0fbe253f29d7030f01/transformed/sqlite-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.2.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/27324cd0b0e92f51b281c2a731429ada/transformed/startup-runtime-1.2.0/AndroidManifest.xml:17:1-31:12
+MERGED from [androidx.exifinterface:exifinterface:1.4.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/3df15e704e138773cefcb9ba935c46a8/transformed/exifinterface-1.4.2/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/45f1964a1cf163ef84980940ca17e4b4/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.tracing:tracing:1.2.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a61a469ee228469ed263eca040e25784/transformed/tracing-1.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core-viewtree:1.0.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/999f436af47221a4104d296c2dca7b34/transformed/core-viewtree-1.0.0/AndroidManifest.xml:2:1-7:12
+	package
+		INJECTED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:4:5-67
+MERGED from [com.squareup.okhttp3:okhttp-android:5.3.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/f2ae3dec9c01f889385b30abc2c5fc8a/transformed/okhttp-release/AndroidManifest.xml:8:5-67
+MERGED from [com.squareup.okhttp3:okhttp-android:5.3.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/f2ae3dec9c01f889385b30abc2c5fc8a/transformed/okhttp-release/AndroidManifest.xml:8:5-67
+	android:name
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:4:22-64
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:5:5-77
+	android:name
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:5:22-74
+uses-permission#android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK
+ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:6:5-92
+	android:name
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:6:22-89
+uses-permission#android.permission.FOREGROUND_SERVICE_DATA_SYNC
+ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:7:5-87
+	android:name
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:7:22-84
+uses-permission#android.permission.POST_NOTIFICATIONS
+ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:8:5-77
+	android:name
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:8:22-74
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:9:5-10:38
+	android:maxSdkVersion
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:10:9-35
+	android:name
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:9:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:11:5-12:38
+	android:maxSdkVersion
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:12:9-35
+	android:name
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:11:22-77
+uses-permission#android.permission.READ_MEDIA_AUDIO
+ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:13:5-75
+	android:name
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:13:22-72
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:14:5-79
+MERGED from [androidx.media3:media3-common:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a5a75449db51d7bb73d26becbf5a69be/transformed/media3-common-1.9.2/AndroidManifest.xml:22:5-79
+MERGED from [androidx.media3:media3-common:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a5a75449db51d7bb73d26becbf5a69be/transformed/media3-common-1.9.2/AndroidManifest.xml:22:5-79
+MERGED from [androidx.media3:media3-exoplayer:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/d38b82b2674aa8e4d3da026924630712/transformed/media3-exoplayer-1.9.2/AndroidManifest.xml:22:5-79
+MERGED from [androidx.media3:media3-exoplayer:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/d38b82b2674aa8e4d3da026924630712/transformed/media3-exoplayer-1.9.2/AndroidManifest.xml:22:5-79
+	android:name
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:14:22-76
+application
+ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:16:5-55:19
+INJECTED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:16:5-55:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/8001912852591ac61dbc05320bebc899/transformed/ui-tooling/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/8001912852591ac61dbc05320bebc899/transformed/ui-tooling/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.emoji2:emoji2:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9b0a43295abd7a171d80685f1251b89a/transformed/emoji2-1.4.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9b0a43295abd7a171d80685f1251b89a/transformed/emoji2-1.4.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.16.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a53db831b64e39c3b95a7a07f85692b1/transformed/core-1.16.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.16.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a53db831b64e39c3b95a7a07f85692b1/transformed/core-1.16.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/963b6e6935f81cb11cd2c16f1bd8689d/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/963b6e6935f81cb11cd2c16f1bd8689d/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.room:room-runtime-android:2.7.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/183fafaa0a02ad2f478c322069478910/transformed/room-runtime-release/AndroidManifest.xml:23:5-29:19
+MERGED from [androidx.room:room-runtime-android:2.7.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/183fafaa0a02ad2f478c322069478910/transformed/room-runtime-release/AndroidManifest.xml:23:5-29:19
+MERGED from [com.squareup.okhttp3:okhttp-android:5.3.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/f2ae3dec9c01f889385b30abc2c5fc8a/transformed/okhttp-release/AndroidManifest.xml:10:5-20:19
+MERGED from [com.squareup.okhttp3:okhttp-android:5.3.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/f2ae3dec9c01f889385b30abc2c5fc8a/transformed/okhttp-release/AndroidManifest.xml:10:5-20:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.2.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/27324cd0b0e92f51b281c2a731429ada/transformed/startup-runtime-1.2.0/AndroidManifest.xml:23:5-29:19
+MERGED from [androidx.startup:startup-runtime:1.2.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/27324cd0b0e92f51b281c2a731429ada/transformed/startup-runtime-1.2.0/AndroidManifest.xml:23:5-29:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/45f1964a1cf163ef84980940ca17e4b4/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/45f1964a1cf163ef84980940ca17e4b4/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+	android:extractNativeLibs
+		INJECTED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.16.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a53db831b64e39c3b95a7a07f85692b1/transformed/core-1.16.0/AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:21:9-35
+	android:label
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:20:9-30
+	android:icon
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:19:9-43
+	android:allowBackup
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:18:9-35
+	android:theme
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:22:9-43
+	android:name
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:17:9-33
+activity#com.music.app.MainActivity
+ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:24:9-34:20
+	android:exported
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:26:13-36
+	android:theme
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:28:9-43
+	android:networkSecurityConfig
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:27:9-69
+	android:name
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:25:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:30:13-33:29
+action#android.intent.action.MAIN
+ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:31:17-69
+	android:name
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:31:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:32:17-77
+	android:name
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:32:27-74
+service#com.music.app.player.MusicService
+ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:36:9-43:19
+	android:exported
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:38:13-37
+	android:foregroundServiceType
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:39:13-58
+	android:name
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:37:13-48
+intent-filter#action:name:androidx.media3.session.MediaSessionService
+ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:40:13-42:29
+action#androidx.media3.session.MediaSessionService
+ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:41:17-86
+	android:name
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:41:25-83
+service#com.music.app.download.MyDownloadService
+ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:45:9-53:19
+	android:exported
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:47:13-37
+	android:foregroundServiceType
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:48:13-53
+	android:name
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:46:13-55
+intent-filter#action:name:androidx.media3.exoplayer.downloadService.action.RESTART+category:name:android.intent.category.DEFAULT
+ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:49:13-52:29
+action#androidx.media3.exoplayer.downloadService.action.RESTART
+ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:50:17-99
+	android:name
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:50:25-96
+category#android.intent.category.DEFAULT
+ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:51:17-76
+	android:name
+		ADDED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:51:27-73
+uses-sdk
+INJECTED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml
+INJECTED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml
+MERGED from [androidx.navigation:navigation-runtime-android:2.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/847c1d6c1c7a0a29a458a5b91053fb5d/transformed/navigation-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime-android:2.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/847c1d6c1c7a0a29a458a5b91053fb5d/transformed/navigation-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-android:2.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/1251bd312b6d492802b6f664c28360fe/transformed/navigation-common-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-android:2.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/1251bd312b6d492802b6f664c28360fe/transformed/navigation-common-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-compose-android:2.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/2f9269913215e29d41b86da3572efda0/transformed/navigation-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose-android:2.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/2f9269913215e29d41b86da3572efda0/transformed/navigation-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [io.insert-koin:koin-compose-android:4.1.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/76b607fccffb4338d6bfb95a2ee74470/transformed/koin-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [io.insert-koin:koin-compose-android:4.1.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/76b607fccffb4338d6bfb95a2ee74470/transformed/koin-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [io.insert-koin:koin-android:4.1.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/3292e2b0a3f8cf658ef8f1e9bf798f27/transformed/koin-android-4.1.1/AndroidManifest.xml:5:5-44
+MERGED from [io.insert-koin:koin-android:4.1.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/3292e2b0a3f8cf658ef8f1e9bf798f27/transformed/koin-android-4.1.1/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt.coil3:coil-network-ktor3-android:3.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a63f88615d3ac7f5faf8b5cd83a2d681/transformed/coil-network-ktor3/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt.coil3:coil-network-ktor3-android:3.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a63f88615d3ac7f5faf8b5cd83a2d681/transformed/coil-network-ktor3/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt.coil3:coil-compose-android:3.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/95d72f3b525b7c95c585c14dd747df6a/transformed/coil-compose/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt.coil3:coil-compose-android:3.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/95d72f3b525b7c95c585c14dd747df6a/transformed/coil-compose/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt.coil3:coil-android:3.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/c536435b38f5962f86210607a6970c25/transformed/coil/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt.coil3:coil-android:3.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/c536435b38f5962f86210607a6970c25/transformed/coil/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt.coil3:coil-compose-core-android:3.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/cdf7224f798a949f2b3a9742b87c7fdd/transformed/coil-compose-core/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt.coil3:coil-compose-core-android:3.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/cdf7224f798a949f2b3a9742b87c7fdd/transformed/coil-compose-core/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt.coil3:coil-network-core-android:3.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/17e82f04d68c10b02cb21f6d550238b3/transformed/coil-network-core/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt.coil3:coil-network-core-android:3.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/17e82f04d68c10b02cb21f6d550238b3/transformed/coil-network-core/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt.coil3:coil-core-android:3.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/3bfc12f6019c3b3fa3aa1dcdd671b4a6/transformed/coil-core/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt.coil3:coil-core-android:3.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/3bfc12f6019c3b3fa3aa1dcdd671b4a6/transformed/coil-core/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.7.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/ca226196dff6d8085050fb201a651918/transformed/appcompat-resources-1.7.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.7.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/ca226196dff6d8085050fb201a651918/transformed/appcompat-resources-1.7.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat:1.7.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/6e467d8501fb16eb10e0e2565e6b5aa5/transformed/appcompat-1.7.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat:1.7.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/6e467d8501fb16eb10e0e2565e6b5aa5/transformed/appcompat-1.7.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment:1.8.9] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9855272ffa98bd73def5900f17c093ce/transformed/fragment-1.8.9/AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment:1.8.9] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9855272ffa98bd73def5900f17c093ce/transformed/fragment-1.8.9/AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment-ktx:1.8.9] /home/Tiopaz/.gradle/caches/9.4.0/transforms/ac5d62e2e7333dfa5feb3434d4ffc85d/transformed/fragment-ktx-1.8.9/AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment-ktx:1.8.9] /home/Tiopaz/.gradle/caches/9.4.0/transforms/ac5d62e2e7333dfa5feb3434d4ffc85d/transformed/fragment-ktx-1.8.9/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material3:material3-android:1.3.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/16706269c01e926845d70c9306908173/transformed/material3-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material3:material3-android:1.3.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/16706269c01e926845d70c9306908173/transformed/material3-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material:material-icons-extended-android:1.7.8] /home/Tiopaz/.gradle/caches/9.4.0/transforms/95906061cf97009f934eaa7911a0bb5e/transformed/material-icons-extended-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-extended-android:1.7.8] /home/Tiopaz/.gradle/caches/9.4.0/transforms/95906061cf97009f934eaa7911a0bb5e/transformed/material-icons-extended-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.8] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a1659204f00887a56dce982caa28cc50/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.8] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a1659204f00887a56dce982caa28cc50/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [com.google.accompanist:accompanist-drawablepainter:0.37.3] /home/Tiopaz/.gradle/caches/9.4.0/transforms/bf1d51e421a2205116460bf30e1b2e7d/transformed/accompanist-drawablepainter-0.37.3/AndroidManifest.xml:21:5-44
+MERGED from [com.google.accompanist:accompanist-drawablepainter:0.37.3] /home/Tiopaz/.gradle/caches/9.4.0/transforms/bf1d51e421a2205116460bf30e1b2e7d/transformed/accompanist-drawablepainter-0.37.3/AndroidManifest.xml:21:5-44
+MERGED from [androidx.compose.material:material-android:1.7.8] /home/Tiopaz/.gradle/caches/9.4.0/transforms/c969c746628574fb7fce8e04013c6c9c/transformed/material-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-android:1.7.8] /home/Tiopaz/.gradle/caches/9.4.0/transforms/c969c746628574fb7fce8e04013c6c9c/transformed/material-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.7.8] /home/Tiopaz/.gradle/caches/9.4.0/transforms/c59f6dd334ce81e8ed9eb844b4a61378/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.7.8] /home/Tiopaz/.gradle/caches/9.4.0/transforms/c59f6dd334ce81e8ed9eb844b4a61378/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/cc74dfb4dfafa88c53cc3baaa4c393c7/transformed/animation-core/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/cc74dfb4dfafa88c53cc3baaa4c393c7/transformed/animation-core/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/8b235adb0a61d90e574c4a9d1067ff70/transformed/animation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/8b235adb0a61d90e574c4a9d1067ff70/transformed/animation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/0580dfacfbfcd28a0daa70a05f4bc00e/transformed/foundation-layout/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/0580dfacfbfcd28a0daa70a05f4bc00e/transformed/foundation-layout/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/e462860153d8c7783d1a52021036ff76/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/e462860153d8c7783d1a52021036ff76/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/0c5f7c6ee04106b3071f83c75e02ebe1/transformed/ui-tooling-data/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/0c5f7c6ee04106b3071f83c75e02ebe1/transformed/ui-tooling-data/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/1db2b4e91212d23a3062261e2d8ca637/transformed/ui-tooling-preview/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/1db2b4e91212d23a3062261e2d8ca637/transformed/ui-tooling-preview/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/ec726c8302d7f3c9cd9896f59b728865/transformed/ui-unit/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/ec726c8302d7f3c9cd9896f59b728865/transformed/ui-unit/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/034022a01697b70f0a3e0fd97e0fe8ba/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/034022a01697b70f0a3e0fd97e0fe8ba/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/17bb492cc425a986cf006c8b160b8536/transformed/ui-geometry/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/17bb492cc425a986cf006c8b160b8536/transformed/ui-geometry/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/91fc6ed4f3a5c3a3a7269ceaf4310e1e/transformed/ui-util/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/91fc6ed4f3a5c3a3a7269ceaf4310e1e/transformed/ui-util/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/27913d564e433bbbd309f2c05868b3ca/transformed/ui-text/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/27913d564e433bbbd309f2c05868b3ca/transformed/ui-text/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/c59a197e430efb5449f239e5bf8969dd/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/c59a197e430efb5449f239e5bf8969dd/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/8001912852591ac61dbc05320bebc899/transformed/ui-tooling/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/8001912852591ac61dbc05320bebc899/transformed/ui-tooling/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-compose:1.10.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/f68566c35b97569494b1a5614ee31309/transformed/activity-compose-1.10.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.10.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/f68566c35b97569494b1a5614ee31309/transformed/activity-compose-1.10.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity:1.10.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/0dcd091e70295513c5e6a498bdf7b127/transformed/activity-1.10.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.10.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/0dcd091e70295513c5e6a498bdf7b127/transformed/activity-1.10.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-ktx:1.10.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/6fe03f7d68a1589e5a823f8fdae87168/transformed/activity-ktx-1.10.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.10.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/6fe03f7d68a1589e5a823f8fdae87168/transformed/activity-ktx-1.10.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/34fe44d12aee9097dc2951d0a8b52df0/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/34fe44d12aee9097dc2951d0a8b52df0/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9fe3b953f9736ea07e95ffd745e50d29/transformed/lifecycle-livedata-2.10.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9fe3b953f9736ea07e95ffd745e50d29/transformed/lifecycle-livedata-2.10.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/0f6e2285126499ae5091ce5e2df579c6/transformed/lifecycle-livedata-core-2.10.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/0f6e2285126499ae5091ce5e2df579c6/transformed/lifecycle-livedata-core-2.10.0/AndroidManifest.xml:20:5-44
+MERGED from [io.insert-koin:koin-core-viewmodel-android:4.1.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/3d4db94dbcce0ce6d123c84fa1a41a7b/transformed/koin-core-viewmodel-release/AndroidManifest.xml:5:5-44
+MERGED from [io.insert-koin:koin-core-viewmodel-android:4.1.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/3d4db94dbcce0ce6d123c84fa1a41a7b/transformed/koin-core-viewmodel-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/64350ac3cbd4c1aba9401e2aa3dc8165/transformed/lifecycle-viewmodel-savedstate/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/64350ac3cbd4c1aba9401e2aa3dc8165/transformed/lifecycle-viewmodel-savedstate/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/20f8a34915ad4f2c327b3b1745b81242/transformed/lifecycle-livedata-core-ktx-2.10.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/20f8a34915ad4f2c327b3b1745b81242/transformed/lifecycle-livedata-core-ktx-2.10.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/91505ef20a81012ed19cbc820e58b0b4/transformed/lifecycle-viewmodel-2.10.0/AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/91505ef20a81012ed19cbc820e58b0b4/transformed/lifecycle-viewmodel-2.10.0/AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/83cb4daee31e031a4c498b24b532d0ab/transformed/lifecycle-viewmodel/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/83cb4daee31e031a4c498b24b532d0ab/transformed/lifecycle-viewmodel/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.runtime:runtime-annotation-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/1c37c62e1e4e09c5f570fa32d7a2c516/transformed/runtime-annotation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-annotation-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/1c37c62e1e4e09c5f570fa32d7a2c516/transformed/runtime-annotation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/c35d101a128be22dfffc38e7bd68f0e2/transformed/runtime/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/c35d101a128be22dfffc38e7bd68f0e2/transformed/runtime/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9c98af01ce7b054180b5df1e8a184ccd/transformed/runtime-saveable/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9c98af01ce7b054180b5df1e8a184ccd/transformed/runtime-saveable/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-compose-android:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/34a633d2cb4cd3266cfe2ed076566ddb/transformed/savedstate-compose/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-compose-android:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/34a633d2cb4cd3266cfe2ed076566ddb/transformed/savedstate-compose/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/217ad14a1de4de56df0dc683e0f91c52/transformed/savedstate-ktx-1.4.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/217ad14a1de4de56df0dc683e0f91c52/transformed/savedstate-ktx-1.4.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-android:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/291285147b1363dbe132166dca07a4fc/transformed/savedstate/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-android:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/291285147b1363dbe132166dca07a4fc/transformed/savedstate/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-session:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/26bad68db4905f6e62584a81a31809ae/transformed/media3-session-1.9.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-session:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/26bad68db4905f6e62584a81a31809ae/transformed/media3-session-1.9.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-datasource-okhttp:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/326cbaacc055efe9232562597d1fa543/transformed/media3-datasource-okhttp-1.9.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-datasource-okhttp:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/326cbaacc055efe9232562597d1fa543/transformed/media3-datasource-okhttp-1.9.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-datasource:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/057d3bb54768be30221aacf556a61583/transformed/media3-datasource-1.9.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-datasource:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/057d3bb54768be30221aacf556a61583/transformed/media3-datasource-1.9.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-database:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/fdc7b927ad0e0421ebd54b055a682a02/transformed/media3-database-1.9.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-database:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/fdc7b927ad0e0421ebd54b055a682a02/transformed/media3-database-1.9.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-extractor:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/190d34426e3b04fd02b2fb6ff682e71d/transformed/media3-extractor-1.9.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-extractor:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/190d34426e3b04fd02b2fb6ff682e71d/transformed/media3-extractor-1.9.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-container:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/0c7a8017871a4106d75493fd501d8ec1/transformed/media3-container-1.9.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-container:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/0c7a8017871a4106d75493fd501d8ec1/transformed/media3-container-1.9.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-decoder:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/43a744647422646889caa3624a7616bc/transformed/media3-decoder-1.9.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-decoder:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/43a744647422646889caa3624a7616bc/transformed/media3-decoder-1.9.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-common:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a5a75449db51d7bb73d26becbf5a69be/transformed/media3-common-1.9.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-common:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a5a75449db51d7bb73d26becbf5a69be/transformed/media3-common-1.9.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/d38b82b2674aa8e4d3da026924630712/transformed/media3-exoplayer-1.9.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/d38b82b2674aa8e4d3da026924630712/transformed/media3-exoplayer-1.9.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.7.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/7744eec26f28770c3af388b09676ddb9/transformed/media-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.media:media:1.7.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/7744eec26f28770c3af388b09676ddb9/transformed/media-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/f28f5e664941ca4777adf10d874366c5/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/f28f5e664941ca4777adf10d874366c5/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/60a0bad54defc1627cb2fc3f60df60de/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/60a0bad54defc1627cb2fc3f60df60de/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/b243274c8ddf37453acd0484c56987fa/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/b243274c8ddf37453acd0484c56987fa/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/3b6edc75a6dd831a3d26f2e23535cc8a/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/3b6edc75a6dd831a3d26f2e23535cc8a/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/539a59fc12094fbf2d26d67deda518f4/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/539a59fc12094fbf2d26d67deda518f4/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/2bc01d317d9d6eda18a16fe03449a204/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/2bc01d317d9d6eda18a16fe03449a204/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.core:core-ktx:1.16.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/2061360f6fb21f1c6c74cf409bf82681/transformed/core-ktx-1.16.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.16.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/2061360f6fb21f1c6c74cf409bf82681/transformed/core-ktx-1.16.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.autofill:autofill:1.0.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/f0185e0a906353565dd857031695f65a/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.0.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/f0185e0a906353565dd857031695f65a/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.emoji2:emoji2-views-helper:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/7a2a086b4d21047f3a2d56da3a7f4e98/transformed/emoji2-views-helper-1.4.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/7a2a086b4d21047f3a2d56da3a7f4e98/transformed/emoji2-views-helper-1.4.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9b0a43295abd7a171d80685f1251b89a/transformed/emoji2-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9b0a43295abd7a171d80685f1251b89a/transformed/emoji2-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.graphics:graphics-path:1.0.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/02f756379176cf2cc4ab6d5e7ae0ffb1/transformed/graphics-path-1.0.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.graphics:graphics-path:1.0.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/02f756379176cf2cc4ab6d5e7ae0ffb1/transformed/graphics-path-1.0.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core:1.16.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a53db831b64e39c3b95a7a07f85692b1/transformed/core-1.16.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.16.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a53db831b64e39c3b95a7a07f85692b1/transformed/core-1.16.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/e97900a0657390ca3dc5f357395a3a86/transformed/lifecycle-runtime/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/e97900a0657390ca3dc5f357395a3a86/transformed/lifecycle-runtime/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/fd610984f2d5b0983961bbde75998097/transformed/lifecycle-viewmodel-ktx-2.10.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/fd610984f2d5b0983961bbde75998097/transformed/lifecycle-viewmodel-ktx-2.10.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/bc730318c71d66d45c344cf9d74d9bc2/transformed/lifecycle-runtime-compose/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/bc730318c71d66d45c344cf9d74d9bc2/transformed/lifecycle-runtime-compose/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/087bbf1e46a7264f5c97921b65d943a0/transformed/lifecycle-viewmodel-compose/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/087bbf1e46a7264f5c97921b65d943a0/transformed/lifecycle-viewmodel-compose/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/733df01ad9e175f314d2c5823a3b8d92/transformed/lifecycle-runtime-ktx/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/733df01ad9e175f314d2c5823a3b8d92/transformed/lifecycle-runtime-ktx/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/963b6e6935f81cb11cd2c16f1bd8689d/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/963b6e6935f81cb11cd2c16f1bd8689d/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.room:room-runtime-android:2.7.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/183fafaa0a02ad2f478c322069478910/transformed/room-runtime-release/AndroidManifest.xml:21:5-44
+MERGED from [androidx.room:room-runtime-android:2.7.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/183fafaa0a02ad2f478c322069478910/transformed/room-runtime-release/AndroidManifest.xml:21:5-44
+MERGED from [androidx.room:room-ktx:2.7.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/c1ef7b8c4fe291c4098a840fec29d498/transformed/room-ktx-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.room:room-ktx:2.7.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/c1ef7b8c4fe291c4098a840fec29d498/transformed/room-ktx-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/5a9d3b649f850bb71ae0ff1e3e9e38a4/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/5a9d3b649f850bb71ae0ff1e3e9e38a4/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/913903228ba11ef4857a58768a3563d8/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/913903228ba11ef4857a58768a3563d8/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/8f3732ed394abba9a43abf1cbc0c0b80/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/8f3732ed394abba9a43abf1cbc0c0b80/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [com.squareup.okhttp3:okhttp-android:5.3.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/f2ae3dec9c01f889385b30abc2c5fc8a/transformed/okhttp-release/AndroidManifest.xml:6:5-44
+MERGED from [com.squareup.okhttp3:okhttp-android:5.3.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/f2ae3dec9c01f889385b30abc2c5fc8a/transformed/okhttp-release/AndroidManifest.xml:6:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/d1fe38d71b409d899dba5e7201cb2c0e/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/d1fe38d71b409d899dba5e7201cb2c0e/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite-framework-android:2.5.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/17a1d94f4e5a974a1ec109ad635c3534/transformed/sqlite-framework-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite-framework-android:2.5.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/17a1d94f4e5a974a1ec109ad635c3534/transformed/sqlite-framework-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite-android:2.5.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/5878d55db1df2b0fbe253f29d7030f01/transformed/sqlite-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite-android:2.5.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/5878d55db1df2b0fbe253f29d7030f01/transformed/sqlite-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.2.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/27324cd0b0e92f51b281c2a731429ada/transformed/startup-runtime-1.2.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.2.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/27324cd0b0e92f51b281c2a731429ada/transformed/startup-runtime-1.2.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.4.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/3df15e704e138773cefcb9ba935c46a8/transformed/exifinterface-1.4.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.4.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/3df15e704e138773cefcb9ba935c46a8/transformed/exifinterface-1.4.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/45f1964a1cf163ef84980940ca17e4b4/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/45f1964a1cf163ef84980940ca17e4b4/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.2.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a61a469ee228469ed263eca040e25784/transformed/tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing:1.2.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a61a469ee228469ed263eca040e25784/transformed/tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core-viewtree:1.0.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/999f436af47221a4104d296c2dca7b34/transformed/core-viewtree-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-viewtree:1.0.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/999f436af47221a4104d296c2dca7b34/transformed/core-viewtree-1.0.0/AndroidManifest.xml:5:5-44
+	android:targetSdkVersion
+		INJECTED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml
+activity#androidx.compose.ui.tooling.PreviewActivity
+ADDED from [androidx.compose.ui:ui-tooling-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/8001912852591ac61dbc05320bebc899/transformed/ui-tooling/AndroidManifest.xml:23:9-25:39
+	android:exported
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/8001912852591ac61dbc05320bebc899/transformed/ui-tooling/AndroidManifest.xml:25:13-36
+	android:name
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/8001912852591ac61dbc05320bebc899/transformed/ui-tooling/AndroidManifest.xml:24:13-71
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [androidx.media3:media3-exoplayer:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/d38b82b2674aa8e4d3da026924630712/transformed/media3-exoplayer-1.9.2/AndroidManifest.xml:23:5-68
+	android:name
+		ADDED from [androidx.media3:media3-exoplayer:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/d38b82b2674aa8e4d3da026924630712/transformed/media3-exoplayer-1.9.2/AndroidManifest.xml:23:22-65
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9b0a43295abd7a171d80685f1251b89a/transformed/emoji2-1.4.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/963b6e6935f81cb11cd2c16f1bd8689d/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/963b6e6935f81cb11cd2c16f1bd8689d/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:24:9-32:20
+MERGED from [com.squareup.okhttp3:okhttp-android:5.3.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/f2ae3dec9c01f889385b30abc2c5fc8a/transformed/okhttp-release/AndroidManifest.xml:11:9-19:20
+MERGED from [com.squareup.okhttp3:okhttp-android:5.3.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/f2ae3dec9c01f889385b30abc2c5fc8a/transformed/okhttp-release/AndroidManifest.xml:11:9-19:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.2.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/27324cd0b0e92f51b281c2a731429ada/transformed/startup-runtime-1.2.0/AndroidManifest.xml:24:9-28:34
+MERGED from [androidx.startup:startup-runtime:1.2.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/27324cd0b0e92f51b281c2a731429ada/transformed/startup-runtime-1.2.0/AndroidManifest.xml:24:9-28:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9b0a43295abd7a171d80685f1251b89a/transformed/emoji2-1.4.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9b0a43295abd7a171d80685f1251b89a/transformed/emoji2-1.4.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9b0a43295abd7a171d80685f1251b89a/transformed/emoji2-1.4.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9b0a43295abd7a171d80685f1251b89a/transformed/emoji2-1.4.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9b0a43295abd7a171d80685f1251b89a/transformed/emoji2-1.4.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9b0a43295abd7a171d80685f1251b89a/transformed/emoji2-1.4.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9b0a43295abd7a171d80685f1251b89a/transformed/emoji2-1.4.0/AndroidManifest.xml:30:17-75
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.16.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a53db831b64e39c3b95a7a07f85692b1/transformed/core-1.16.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.16.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a53db831b64e39c3b95a7a07f85692b1/transformed/core-1.16.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.16.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a53db831b64e39c3b95a7a07f85692b1/transformed/core-1.16.0/AndroidManifest.xml:23:9-81
+permission#com.music.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.16.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a53db831b64e39c3b95a7a07f85692b1/transformed/core-1.16.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.16.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a53db831b64e39c3b95a7a07f85692b1/transformed/core-1.16.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.16.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a53db831b64e39c3b95a7a07f85692b1/transformed/core-1.16.0/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.16.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a53db831b64e39c3b95a7a07f85692b1/transformed/core-1.16.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.16.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a53db831b64e39c3b95a7a07f85692b1/transformed/core-1.16.0/AndroidManifest.xml:26:22-94
+uses-permission#com.music.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.16.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a53db831b64e39c3b95a7a07f85692b1/transformed/core-1.16.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.16.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a53db831b64e39c3b95a7a07f85692b1/transformed/core-1.16.0/AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/963b6e6935f81cb11cd2c16f1bd8689d/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/963b6e6935f81cb11cd2c16f1bd8689d/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/963b6e6935f81cb11cd2c16f1bd8689d/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:30:17-78
+service#androidx.room.MultiInstanceInvalidationService
+ADDED from [androidx.room:room-runtime-android:2.7.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/183fafaa0a02ad2f478c322069478910/transformed/room-runtime-release/AndroidManifest.xml:24:9-28:63
+	android:exported
+		ADDED from [androidx.room:room-runtime-android:2.7.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/183fafaa0a02ad2f478c322069478910/transformed/room-runtime-release/AndroidManifest.xml:27:13-37
+	tools:ignore
+		ADDED from [androidx.room:room-runtime-android:2.7.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/183fafaa0a02ad2f478c322069478910/transformed/room-runtime-release/AndroidManifest.xml:28:13-60
+	android:directBootAware
+		ADDED from [androidx.room:room-runtime-android:2.7.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/183fafaa0a02ad2f478c322069478910/transformed/room-runtime-release/AndroidManifest.xml:26:13-43
+	android:name
+		ADDED from [androidx.room:room-runtime-android:2.7.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/183fafaa0a02ad2f478c322069478910/transformed/room-runtime-release/AndroidManifest.xml:25:13-74
+meta-data#okhttp3.internal.platform.PlatformInitializer
+ADDED from [com.squareup.okhttp3:okhttp-android:5.3.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/f2ae3dec9c01f889385b30abc2c5fc8a/transformed/okhttp-release/AndroidManifest.xml:16:13-18:52
+	android:value
+		ADDED from [com.squareup.okhttp3:okhttp-android:5.3.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/f2ae3dec9c01f889385b30abc2c5fc8a/transformed/okhttp-release/AndroidManifest.xml:18:17-49
+	android:name
+		ADDED from [com.squareup.okhttp3:okhttp-android:5.3.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/f2ae3dec9c01f889385b30abc2c5fc8a/transformed/okhttp-release/AndroidManifest.xml:17:17-77
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:50:25-92

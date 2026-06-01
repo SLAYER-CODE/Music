@@ -1,0 +1,223 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.music.app"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+9        android:targetSdkVersion="36" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:4:5-67
+11-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:4:22-64
+12    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+12-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:5:5-77
+12-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:5:22-74
+13    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+13-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:6:5-92
+13-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:6:22-89
+14    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+14-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:7:5-87
+14-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:7:22-84
+15    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+15-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:8:5-77
+15-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:8:22-74
+16    <uses-permission
+16-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:9:5-10:38
+17        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+17-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:9:22-78
+18        android:maxSdkVersion="28" />
+18-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:10:9-35
+19    <uses-permission
+19-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:11:5-12:38
+20        android:name="android.permission.READ_EXTERNAL_STORAGE"
+20-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:11:22-77
+21        android:maxSdkVersion="32" />
+21-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:12:9-35
+22    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+22-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:13:5-75
+22-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:13:22-72
+23    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+23-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:14:5-79
+23-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:14:22-76
+24    <uses-permission android:name="android.permission.WAKE_LOCK" />
+24-->[androidx.media3:media3-exoplayer:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/d38b82b2674aa8e4d3da026924630712/transformed/media3-exoplayer-1.9.2/AndroidManifest.xml:23:5-68
+24-->[androidx.media3:media3-exoplayer:1.9.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/d38b82b2674aa8e4d3da026924630712/transformed/media3-exoplayer-1.9.2/AndroidManifest.xml:23:22-65
+25
+26    <permission
+26-->[androidx.core:core:1.16.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a53db831b64e39c3b95a7a07f85692b1/transformed/core-1.16.0/AndroidManifest.xml:22:5-24:47
+27        android:name="com.music.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+27-->[androidx.core:core:1.16.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a53db831b64e39c3b95a7a07f85692b1/transformed/core-1.16.0/AndroidManifest.xml:23:9-81
+28        android:protectionLevel="signature" />
+28-->[androidx.core:core:1.16.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a53db831b64e39c3b95a7a07f85692b1/transformed/core-1.16.0/AndroidManifest.xml:24:9-44
+29
+30    <uses-permission android:name="com.music.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+30-->[androidx.core:core:1.16.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a53db831b64e39c3b95a7a07f85692b1/transformed/core-1.16.0/AndroidManifest.xml:26:5-97
+30-->[androidx.core:core:1.16.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a53db831b64e39c3b95a7a07f85692b1/transformed/core-1.16.0/AndroidManifest.xml:26:22-94
+31
+32    <application
+32-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:16:5-55:19
+33        android:name="com.music.app.MusicApp"
+33-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:17:9-33
+34        android:allowBackup="true"
+34-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:18:9-35
+35        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+35-->[androidx.core:core:1.16.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/a53db831b64e39c3b95a7a07f85692b1/transformed/core-1.16.0/AndroidManifest.xml:28:18-86
+36        android:debuggable="true"
+37        android:extractNativeLibs="false"
+38        android:icon="@mipmap/ic_launcher"
+38-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:19:9-43
+39        android:label="Music"
+39-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:20:9-30
+40        android:supportsRtl="true"
+40-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:21:9-35
+41        android:theme="@style/Theme.Music" >
+41-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:22:9-43
+42        <activity
+42-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:24:9-34:20
+43            android:name="com.music.app.MainActivity"
+43-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:25:13-41
+44            android:exported="true"
+44-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:26:13-36
+45            android:networkSecurityConfig="@xml/network_security_config"
+45-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:27:9-69
+46            android:theme="@style/Theme.Music" >
+46-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:28:9-43
+47            <intent-filter>
+47-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:30:13-33:29
+48                <action android:name="android.intent.action.MAIN" />
+48-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:31:17-69
+48-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:31:25-66
+49
+50                <category android:name="android.intent.category.LAUNCHER" />
+50-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:32:17-77
+50-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:32:27-74
+51            </intent-filter>
+52        </activity>
+53
+54        <service
+54-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:36:9-43:19
+55            android:name="com.music.app.player.MusicService"
+55-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:37:13-48
+56            android:exported="false"
+56-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:38:13-37
+57            android:foregroundServiceType="mediaPlayback" >
+57-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:39:13-58
+58            <intent-filter>
+58-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:40:13-42:29
+59                <action android:name="androidx.media3.session.MediaSessionService" />
+59-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:41:17-86
+59-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:41:25-83
+60            </intent-filter>
+61        </service>
+62        <service
+62-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:45:9-53:19
+63            android:name="com.music.app.download.MyDownloadService"
+63-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:46:13-55
+64            android:exported="false"
+64-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:47:13-37
+65            android:foregroundServiceType="dataSync" >
+65-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:48:13-53
+66            <intent-filter>
+66-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:49:13-52:29
+67                <action android:name="androidx.media3.exoplayer.downloadService.action.RESTART" />
+67-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:50:17-99
+67-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:50:25-96
+68
+69                <category android:name="android.intent.category.DEFAULT" />
+69-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:51:17-76
+69-->/home/Tiopaz/NewSystem/Proyect/Kreate/Music/app/src/main/AndroidManifest.xml:51:27-73
+70            </intent-filter>
+71        </service>
+72
+73        <activity
+73-->[androidx.compose.ui:ui-tooling-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/8001912852591ac61dbc05320bebc899/transformed/ui-tooling/AndroidManifest.xml:23:9-25:39
+74            android:name="androidx.compose.ui.tooling.PreviewActivity"
+74-->[androidx.compose.ui:ui-tooling-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/8001912852591ac61dbc05320bebc899/transformed/ui-tooling/AndroidManifest.xml:24:13-71
+75            android:exported="true" />
+75-->[androidx.compose.ui:ui-tooling-android:1.9.4] /home/Tiopaz/.gradle/caches/9.4.0/transforms/8001912852591ac61dbc05320bebc899/transformed/ui-tooling/AndroidManifest.xml:25:13-36
+76
+77        <provider
+77-->[androidx.emoji2:emoji2:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9b0a43295abd7a171d80685f1251b89a/transformed/emoji2-1.4.0/AndroidManifest.xml:24:9-32:20
+78            android:name="androidx.startup.InitializationProvider"
+78-->[androidx.emoji2:emoji2:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9b0a43295abd7a171d80685f1251b89a/transformed/emoji2-1.4.0/AndroidManifest.xml:25:13-67
+79            android:authorities="com.music.app.androidx-startup"
+79-->[androidx.emoji2:emoji2:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9b0a43295abd7a171d80685f1251b89a/transformed/emoji2-1.4.0/AndroidManifest.xml:26:13-68
+80            android:exported="false" >
+80-->[androidx.emoji2:emoji2:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9b0a43295abd7a171d80685f1251b89a/transformed/emoji2-1.4.0/AndroidManifest.xml:27:13-37
+81            <meta-data
+81-->[androidx.emoji2:emoji2:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9b0a43295abd7a171d80685f1251b89a/transformed/emoji2-1.4.0/AndroidManifest.xml:29:13-31:52
+82                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+82-->[androidx.emoji2:emoji2:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9b0a43295abd7a171d80685f1251b89a/transformed/emoji2-1.4.0/AndroidManifest.xml:30:17-75
+83                android:value="androidx.startup" />
+83-->[androidx.emoji2:emoji2:1.4.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/9b0a43295abd7a171d80685f1251b89a/transformed/emoji2-1.4.0/AndroidManifest.xml:31:17-49
+84            <meta-data
+84-->[androidx.lifecycle:lifecycle-process:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/963b6e6935f81cb11cd2c16f1bd8689d/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:29:13-31:52
+85                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+85-->[androidx.lifecycle:lifecycle-process:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/963b6e6935f81cb11cd2c16f1bd8689d/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:30:17-78
+86                android:value="androidx.startup" />
+86-->[androidx.lifecycle:lifecycle-process:2.10.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/963b6e6935f81cb11cd2c16f1bd8689d/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:31:17-49
+87            <meta-data
+87-->[com.squareup.okhttp3:okhttp-android:5.3.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/f2ae3dec9c01f889385b30abc2c5fc8a/transformed/okhttp-release/AndroidManifest.xml:16:13-18:52
+88                android:name="okhttp3.internal.platform.PlatformInitializer"
+88-->[com.squareup.okhttp3:okhttp-android:5.3.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/f2ae3dec9c01f889385b30abc2c5fc8a/transformed/okhttp-release/AndroidManifest.xml:17:17-77
+89                android:value="androidx.startup" />
+89-->[com.squareup.okhttp3:okhttp-android:5.3.2] /home/Tiopaz/.gradle/caches/9.4.0/transforms/f2ae3dec9c01f889385b30abc2c5fc8a/transformed/okhttp-release/AndroidManifest.xml:18:17-49
+90            <meta-data
+90-->[androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:29:13-31:52
+91                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+91-->[androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:30:17-85
+92                android:value="androidx.startup" />
+92-->[androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:31:17-49
+93        </provider>
+94
+95        <service
+95-->[androidx.room:room-runtime-android:2.7.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/183fafaa0a02ad2f478c322069478910/transformed/room-runtime-release/AndroidManifest.xml:24:9-28:63
+96            android:name="androidx.room.MultiInstanceInvalidationService"
+96-->[androidx.room:room-runtime-android:2.7.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/183fafaa0a02ad2f478c322069478910/transformed/room-runtime-release/AndroidManifest.xml:25:13-74
+97            android:directBootAware="true"
+97-->[androidx.room:room-runtime-android:2.7.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/183fafaa0a02ad2f478c322069478910/transformed/room-runtime-release/AndroidManifest.xml:26:13-43
+98            android:exported="false" />
+98-->[androidx.room:room-runtime-android:2.7.0] /home/Tiopaz/.gradle/caches/9.4.0/transforms/183fafaa0a02ad2f478c322069478910/transformed/room-runtime-release/AndroidManifest.xml:27:13-37
+99
+100        <receiver
+100-->[androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:34:9-52:20
+101            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+101-->[androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:35:13-76
+102            android:directBootAware="false"
+102-->[androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:36:13-44
+103            android:enabled="true"
+103-->[androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:37:13-35
+104            android:exported="true"
+104-->[androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:38:13-36
+105            android:permission="android.permission.DUMP" >
+105-->[androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:39:13-57
+106            <intent-filter>
+106-->[androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:40:13-42:29
+107                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+107-->[androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:41:17-91
+107-->[androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:41:25-88
+108            </intent-filter>
+109            <intent-filter>
+109-->[androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:43:13-45:29
+110                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+110-->[androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:44:17-85
+110-->[androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:44:25-82
+111            </intent-filter>
+112            <intent-filter>
+112-->[androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:46:13-48:29
+113                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+113-->[androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:47:17-88
+113-->[androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:47:25-85
+114            </intent-filter>
+115            <intent-filter>
+115-->[androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:49:13-51:29
+116                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+116-->[androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:50:17-95
+116-->[androidx.profileinstaller:profileinstaller:1.4.1] /home/Tiopaz/.gradle/caches/9.4.0/transforms/047e220437720aa4cb093e9e536ffc9e/transformed/profileinstaller-1.4.1/AndroidManifest.xml:50:25-92
+117            </intent-filter>
+118        </receiver>
+119    </application>
+120
+121</manifest>
