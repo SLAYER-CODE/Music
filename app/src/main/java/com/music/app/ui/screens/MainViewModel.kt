@@ -12,6 +12,7 @@ import android.provider.MediaStore
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.media3.datasource.HttpDataSource
 import androidx.media3.datasource.cache.Cache
 import androidx.media3.datasource.cache.CacheSpan
 import androidx.media3.datasource.cache.SimpleCache
@@ -467,6 +468,52 @@ class MainViewModel(
                     override fun onPlayerError(error: androidx.media3.common.PlaybackException) {
                         Log.e(TAG, "onPlayerError: errorCode=${error.errorCode} message=${error.message}", error)
                         _loadingItemIds.value = emptySet()
+
+                        // Malformed URL — skip immediately
+                        val isMalformedUrl = error.errorCode == 1004 &&
+                            error.cause is HttpDataSource.HttpDataSourceException &&
+                            error.cause?.cause?.message?.contains("Malformed URL") == true
+                        if (isMalformedUrl && connectedPlayer.currentMediaItemIndex in currentPlaylist.indices) {
+                            Log.w(TAG, "onPlayerError: malformed URL, skipping track")
+                            val rawUri = currentPlaylist[connectedPlayer.currentMediaItemIndex].let {
+                                if (it is MusicItem.YouTube) "yt://${it.id}" else it.id
+                            }
+                            skipOfflineTrack(connectedPlayer, rawUri)
+                            _error.value = null
+                            return
+                        }
+
+                        // EOFException online — stale cache from different format
+                        val isEofException = error.errorCode == 2000 && error.cause?.let { cause ->
+                            var c: Throwable? = cause
+                            while (c != null) {
+                                if (c is java.io.EOFException) return@let true
+                                c = c.cause
+                            }
+                            false
+                        } == true
+                        if (isEofException && _isOnline.value && connectedPlayer.currentMediaItemIndex in currentPlaylist.indices) {
+                            val item = currentPlaylist[connectedPlayer.currentMediaItemIndex]
+                            if (item is MusicItem.YouTube) {
+                                Log.w(TAG, "onPlayerError: EOFException online, purging stale cache for ${item.id}")
+                                _isBuffering.value = false
+                                _error.value = null
+                                val rawUri = "yt://${item.id}"
+                                streamResolver.removeContentLength(item.id)
+                                viewModelScope.launch(Dispatchers.IO) {
+                                    val spans = streamCache.getCachedSpans(rawUri).toList()
+                                    for (span in spans) {
+                                        try { streamCache.removeSpan(span) } catch (e: Exception) { Log.w(TAG, "removeSpan failed", e) }
+                                    }
+                                }
+                                cacheStatePrefs.edit().remove("pct_${item.id}").remove("spans_${item.id}").apply()
+                                _currentCachedSpans.value = emptyList()
+                                connectedPlayer.seekTo(connectedPlayer.currentMediaItemIndex, 0L)
+                                connectedPlayer.play()
+                                return
+                            }
+                        }
+
                         if (!_isOnline.value && connectedPlayer.currentMediaItemIndex in currentPlaylist.indices) {
                             val item = currentPlaylist[connectedPlayer.currentMediaItemIndex]
                             if (item is MusicItem.YouTube) {
@@ -543,6 +590,7 @@ class MainViewModel(
                                 return
                             }
                         }
+                        _isBuffering.value = false
                         _error.value = "Playback error: ${error.message}"
                     }
                 }

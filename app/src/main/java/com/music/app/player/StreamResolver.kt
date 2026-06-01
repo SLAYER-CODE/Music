@@ -26,7 +26,13 @@ class StreamResolver(context: Context) {
 
     private val prefs = context.getSharedPreferences("stream_meta", Context.MODE_PRIVATE)
     private val urlCache = ConcurrentHashMap<String, CachedStream>()
-    private val lastResolvedUrl = ConcurrentHashMap<String, String>()
+    private val lastResolvedUrl = ConcurrentHashMap<String, String>().apply {
+        prefs.all.forEach { (key, value) ->
+            if (key.startsWith("lastUrl_") && value is String) {
+                put(key.removePrefix("lastUrl_"), value)
+            }
+        }
+    }
     private val offlineFallbackCache = ConcurrentHashMap<String, Boolean>()
     val contentLengths = ConcurrentHashMap<String, Long>().apply {
         // Load persisted content lengths
@@ -259,7 +265,11 @@ class StreamResolver(context: Context) {
 
         Log.d(TAG, "resolveStreamUrl: deobfuscating throttling parameter")
         val finalUrl = YoutubeJavaScriptPlayerManager.getUrlWithThrottlingParameterDeobfuscated(songId, streamUrl)
-        val contentLength = format.getLong("contentLength", 0L)
+        var contentLength = format.getLong("contentLength", 0L)
+        if (contentLength == 0L) {
+            val clStr = format.getString("contentLength", null)
+            if (clStr != null) contentLength = clStr.toLongOrNull() ?: 0L
+        }
         val expiresIn = streamingData.getLong("expiresInSeconds", 3600L) * 1000L
 
         val mimeType = format.getString("mimeType", "audio/webm")
@@ -335,13 +345,6 @@ class StreamResolver(context: Context) {
                 val cached = resolveStreamUrl(uriStr)
                 if (cached.contentLength > 0L) {
                     setContentLength(uriStr, cached.contentLength)
-                }
-                val prevUrl = lastResolvedUrl[uriStr]
-                if (prevUrl != null && prevUrl != cached.url) {
-                    Log.d(TAG, "resolver: URL changed for $uriStr, purging stale cached data")
-                    for (cache in caches) {
-                        cache.getCachedSpans(rawUri).toList().forEach { cache.removeSpan(it) }
-                    }
                 }
                 lastResolvedUrl[uriStr] = cached.url
                 setLastResolvedUrl(uriStr, cached.url)
