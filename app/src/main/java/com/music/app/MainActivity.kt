@@ -89,22 +89,14 @@ class MainActivity : ComponentActivity() {
                     val lastPlayedItem by vm.lastPlayedItem.collectAsState()
                     val pendingIntent by vm.pendingDeleteIntent.collectAsState()
                     val isOnline by vm.isOnline.collectAsState()
+                    val isBuffering by vm.isBuffering.collectAsState()
                     val cachedTimeSpans by vm.currentCachedSpans.collectAsState()
                     var showPlayer by remember { mutableStateOf(false) }
-                    var pendingYouTubeClick by remember { mutableStateOf<MusicItem?>(null) }
 
                     LaunchedEffect(error) {
                         if (error != null) {
                             Toast.makeText(this@MainActivity, error, Toast.LENGTH_SHORT).show()
                             vm.clearError()
-                            pendingYouTubeClick = null
-                        }
-                    }
-
-                    LaunchedEffect(isPlaying, currentItem, pendingYouTubeClick) {
-                        if (isPlaying && pendingYouTubeClick != null && currentItem?.id == pendingYouTubeClick?.id) {
-                            showPlayer = true
-                            pendingYouTubeClick = null
                         }
                     }
 
@@ -123,6 +115,7 @@ class MainActivity : ComponentActivity() {
                         PlayerScreen(
                             item = currentItem,
                             isPlaying = isPlaying,
+                            isBuffering = isBuffering,
                             currentPosition = currentPosition,
                             duration = duration,
                             isDownloaded = currentItem is MusicItem.YouTube &&
@@ -167,6 +160,7 @@ class MainActivity : ComponentActivity() {
                             viewModel = vm,
                             currentItem = currentItem,
                             isPlaying = isPlaying,
+                            isBuffering = isBuffering,
                             lastPlayedItem = lastPlayedItem,
                             cachedTimeSpans = cachedTimeSpans,
                             currentPosition = currentPosition,
@@ -174,13 +168,13 @@ class MainActivity : ComponentActivity() {
                             isOnline = isOnline,
                             onSongClick = { item ->
                                 vm.playMusicItem(item)
-                                if (item is MusicItem.YouTube) {
-                                    pendingYouTubeClick = item
-                                } else {
-                                    showPlayer = true
-                                }
+                                showPlayer = true
                             },
-                            onPlayerBarClick = { showPlayer = true }
+                            onPlayerBarClick = { showPlayer = true },
+                            onSearchResultClick = { result ->
+                                vm.saveToLocal(result)
+                                showPlayer = true
+                            }
                         )
                     }
                 }

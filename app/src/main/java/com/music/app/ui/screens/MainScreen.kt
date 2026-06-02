@@ -23,6 +23,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
 import com.music.app.data.model.MusicItem
+import com.music.app.data.remote.SearchResult
 import com.music.app.ui.components.CachedTimeSpan
 import com.music.app.ui.components.PlayerBar
 
@@ -31,9 +32,11 @@ fun MainScreen(
     viewModel: MainViewModel,
     currentItem: MusicItem?,
     isPlaying: Boolean,
+    isBuffering: Boolean = false,
     onSongClick: (MusicItem) -> Unit,
     onPlayerBarClick: () -> Unit,
     lastPlayedItem: MusicItem? = null,
+    onSearchResultClick: (SearchResult) -> Unit = { viewModel.saveToLocal(it) },
     cachedTimeSpans: List<CachedTimeSpan> = emptyList(),
     currentPosition: Long = 0L,
     duration: Long = 0L,
@@ -53,6 +56,7 @@ fun MainScreen(
                 PlayerBar(
                     item = currentItem,
                     isPlaying = isPlaying,
+                    isBuffering = isBuffering,
                     onPlayPause = {
                         if (currentItem != null) {
                             viewModel.togglePlayPause()
@@ -115,7 +119,8 @@ fun MainScreen(
             1 -> SearchScreen(
                 viewModel = viewModel,
                 onResultClick = { result ->
-                    viewModel.saveToLocal(result)
+                    onSearchResultClick(result)
+                    selectedTab = 1
                 },
                 modifier = Modifier.padding(padding)
             )

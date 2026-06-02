@@ -29,6 +29,7 @@ import androidx.compose.material.icons.filled.SkipPrevious
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
@@ -57,6 +58,7 @@ import com.music.app.data.model.MusicItem
 fun PlayerScreen(
     item: MusicItem?,
     isPlaying: Boolean,
+    isBuffering: Boolean = false,
     currentPosition: Long,
     duration: Long,
     isDownloaded: Boolean,
@@ -239,7 +241,21 @@ fun PlayerScreen(
             overflow = TextOverflow.Ellipsis
         )
 
-        if (cachedPercentage in 0f..1f) {
+        if (item is MusicItem.Local) {
+            Text(
+                text = "Local",
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.primary
+            )
+            Spacer(Modifier.height(8.dp))
+        } else if (isBuffering) {
+            Text(
+                text = "Loading...",
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.primary
+            )
+            Spacer(Modifier.height(8.dp))
+        } else if (cachedPercentage in 0f..1f) {
             val pct = (cachedPercentage * 100).toInt()
             Text(
                 text = if (cachedPercentage >= 1f) "Fully cached" else "$pct% cached",
@@ -299,11 +315,19 @@ fun PlayerScreen(
                 modifier = Modifier.size(64.dp),
                 contentPadding = ButtonDefaults.TextButtonContentPadding
             ) {
-                Icon(
-                    imageVector = if (isPlaying) Icons.Default.Pause else Icons.Default.PlayArrow,
-                    contentDescription = if (isPlaying) "Pause" else "Play",
-                    modifier = Modifier.size(36.dp)
-                )
+                if (isBuffering) {
+                    CircularProgressIndicator(
+                        modifier = Modifier.size(36.dp),
+                        strokeWidth = 3.dp,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                } else {
+                    Icon(
+                        imageVector = if (isPlaying) Icons.Default.Pause else Icons.Default.PlayArrow,
+                        contentDescription = if (isPlaying) "Pause" else "Play",
+                        modifier = Modifier.size(36.dp)
+                    )
+                }
             }
 
             Spacer(Modifier.width(24.dp))

@@ -317,14 +317,24 @@ class StreamResolver(context: Context) {
     }
 
     private fun subrangeForSpan(spans: List<CacheSpan>, offSpec: DataSpec, safePos: Long, vararg caches: Cache): DataSpec {
-        val targetSpan = spans.find { safePos in it.position until (it.position + it.length) }
-            ?: spans.filter { it.position <= safePos }.maxByOrNull { it.position }
-            ?: spans.minByOrNull { it.position }
+        val sorted = spans.sortedBy { it.position }
+        val targetSpan = sorted.find { safePos in it.position until (it.position + it.length) }
+            ?: sorted.filter { it.position <= safePos }.maxByOrNull { it.position }
+            ?: sorted.minByOrNull { it.position }
         if (targetSpan != null) {
-            val spanEnd = targetSpan.position + targetSpan.length
-            val clampedPos = safePos.coerceIn(targetSpan.position, spanEnd - 1L)
-            val safeLen = (spanEnd - clampedPos).coerceAtLeast(1)
-            Log.d(TAG, "resolver: offline subrange safePos=$safePos clampedPos=$clampedPos safeLen=$safeLen spanEnd=$spanEnd")
+            val clampedPos = safePos.coerceIn(targetSpan.position, targetSpan.position + targetSpan.length - 1L)
+            var contiguousEnd = targetSpan.position + targetSpan.length
+            val targetIdx = sorted.indexOf(targetSpan)
+            for (i in (targetIdx + 1) until sorted.size) {
+                val next = sorted[i]
+                if (next.position == contiguousEnd) {
+                    contiguousEnd = next.position + next.length
+                } else {
+                    break
+                }
+            }
+            val safeLen = (contiguousEnd - clampedPos).coerceAtLeast(1)
+            Log.d(TAG, "resolver: offline subrange safePos=$safePos clampedPos=$clampedPos safeLen=$safeLen contiguousEnd=$contiguousEnd spans=${sorted.size}")
             return offSpec.buildUpon().setPosition(clampedPos).setLength(safeLen).build()
         }
         return offSpec
