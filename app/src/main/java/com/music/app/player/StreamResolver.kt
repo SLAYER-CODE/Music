@@ -60,6 +60,11 @@ class StreamResolver(context: Context) {
         prefs.edit().remove("cl_$id").remove("mt_$id").remove("dur_$id").remove("lastUrl_$id").apply()
     }
 
+    fun invalidateUrlCache(id: String) {
+        urlCache.remove(id)
+        lastResolvedUrl.remove(id)
+    }
+
     private fun setLastResolvedUrl(id: String, url: String) {
         prefs.edit().putString("lastUrl_$id", url).apply()
     }

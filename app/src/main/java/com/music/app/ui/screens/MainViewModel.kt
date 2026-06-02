@@ -508,6 +508,8 @@ class MainViewModel(
                                 }
                                 cacheStatePrefs.edit().remove("pct_${item.id}").remove("spans_${item.id}").apply()
                                 _currentCachedSpans.value = emptyList()
+                                streamResolver.clearOfflineFallback(rawUri)
+                                streamResolver.invalidateUrlCache(item.id)
                                 connectedPlayer.seekTo(connectedPlayer.currentMediaItemIndex, 0L)
                                 connectedPlayer.play()
                                 return
@@ -531,6 +533,8 @@ class MainViewModel(
                                 }
                                 cacheStatePrefs.edit().remove("pct_${item.id}").remove("spans_${item.id}").apply()
                                 _currentCachedSpans.value = emptyList()
+                                streamResolver.clearOfflineFallback(rawUri)
+                                streamResolver.invalidateUrlCache(item.id)
                                 connectedPlayer.seekTo(connectedPlayer.currentMediaItemIndex, 0L)
                                 connectedPlayer.play()
                                 return
