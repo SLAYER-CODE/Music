@@ -317,17 +317,20 @@ class StreamResolver(context: Context) {
     }
 
     private fun subrangeForSpan(spans: List<CacheSpan>, offSpec: DataSpec, safePos: Long, vararg caches: Cache): DataSpec {
-        val maxPos = spans.maxOfOrNull { it.position + it.length } ?: 0L
-        if (maxPos > 0L) {
+        val targetSpan = spans.find { safePos in it.position until (it.position + it.length) }
+            ?: spans.filter { it.position <= safePos }.maxByOrNull { it.position }
+            ?: spans.minByOrNull { it.position }
+        if (targetSpan != null) {
+            val spanEnd = targetSpan.position + targetSpan.length
             val mutations = ContentMetadataMutations().apply {
-                ContentMetadataMutations.setContentLength(this, maxPos)
+                ContentMetadataMutations.setContentLength(this, spanEnd)
             }
             for (cache in caches) {
                 cache.applyContentMetadataMutations(offSpec.uri.toString(), mutations)
             }
-            val clampedPos = safePos.coerceIn(0L, maxPos - 1L)
-            val safeLen = (maxPos - clampedPos).coerceAtLeast(1)
-            Log.d(TAG, "resolver: offline subrange safePos=$safePos clampedPos=$clampedPos safeLen=$safeLen maxPos=$maxPos")
+            val clampedPos = safePos.coerceIn(targetSpan.position, spanEnd - 1L)
+            val safeLen = (spanEnd - clampedPos).coerceAtLeast(1)
+            Log.d(TAG, "resolver: offline subrange safePos=$safePos clampedPos=$clampedPos safeLen=$safeLen spanEnd=$spanEnd")
             return offSpec.buildUpon().setPosition(clampedPos).setLength(safeLen).build()
         }
         return offSpec
@@ -349,23 +352,27 @@ class StreamResolver(context: Context) {
             // Cache-first: servir inmediatamente si hay datos en disco
             if (!skipCache && !offlineFallbackCache.containsKey(rawUri)) {
                 val spans = caches.flatMap { it.getCachedSpans(rawUri).toList() }
-                if (spans.isNotEmpty()) {
+                val inSpan = spans.any { dataSpec.position in it.position until (it.position + it.length) }
+                if (inSpan) {
                     Log.d(TAG, "resolver: cache-first for $uriStr, ${spans.size} spans, pos=${dataSpec.position}")
-                    offlineFallbackCache[rawUri] = true
                     val offSpec = dataSpec.buildUpon().setKey(rawUri).build()
                     return@Resolver subrangeForSpan(spans, offSpec, dataSpec.position, *caches)
                 }
             }
 
-            val (streamUrl, contentLength) = if (!skipCache && offlineFallbackCache.containsKey(rawUri)) {
-                val offSpec = dataSpec.buildUpon().setKey(rawUri).build()
-                Log.d(TAG, "resolver: offline fallback for $uriStr")
+            // Offline fallback: solo si la posición está realmente en un span
+            if (!skipCache && offlineFallbackCache.containsKey(rawUri)) {
                 val spans = caches.flatMap { it.getCachedSpans(rawUri).toList() }
-                if (spans.isNotEmpty()) {
+                val inSpan = spans.any { dataSpec.position in it.position until (it.position + it.length) }
+                if (inSpan) {
+                    val offSpec = dataSpec.buildUpon().setKey(rawUri).build()
+                    Log.d(TAG, "resolver: offline fallback for $uriStr")
                     return@Resolver subrangeForSpan(spans, offSpec, dataSpec.position, *caches)
                 }
-                return@Resolver offSpec
-            } else try {
+                // posición en gap: no usar offline fallback, resolver online
+            }
+
+            val (streamUrl, contentLength) = try {
                 val cached = resolveStreamUrl(uriStr)
                 if (cached.contentLength > 0L) {
                     setContentLength(uriStr, cached.contentLength)

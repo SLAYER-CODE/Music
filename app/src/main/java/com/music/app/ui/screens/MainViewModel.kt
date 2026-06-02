@@ -541,6 +541,23 @@ class MainViewModel(
                             }
                         }
 
+                        // 1004 = CacheDataSource upstream con yt:// → Malformed URL (no purgar spans)
+                        if ((error.errorCode == 1004) && _isOnline.value && connectedPlayer.currentMediaItemIndex in currentPlaylist.indices) {
+                            val item = currentPlaylist[connectedPlayer.currentMediaItemIndex]
+                            if (item is MusicItem.YouTube) {
+                                Log.w(TAG, "onPlayerError: cache upstream with yt:// URI, retrying with bypass for ${item.id}")
+                                _isBuffering.value = false
+                                _error.value = null
+                                val rawUri = "yt://${item.id}"
+                                streamResolver.clearOfflineFallback(rawUri)
+                                streamResolver.invalidateUrlCache(item.id)
+                                streamResolver.bypassCacheNext(rawUri)
+                                connectedPlayer.seekTo(connectedPlayer.currentMediaItemIndex, connectedPlayer.currentPosition)
+                                connectedPlayer.play()
+                                return
+                            }
+                        }
+
                         if (!_isOnline.value && connectedPlayer.currentMediaItemIndex in currentPlaylist.indices) {
                             val item = currentPlaylist[connectedPlayer.currentMediaItemIndex]
                             if (item is MusicItem.YouTube) {
