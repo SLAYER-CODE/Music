@@ -333,6 +333,17 @@ class StreamResolver(context: Context) {
                 return@Resolver dataSpec
             }
 
+            // Cache-first: servir inmediatamente si hay datos en disco
+            if (!offlineFallbackCache.containsKey(rawUri)) {
+                val spans = caches.flatMap { it.getCachedSpans(rawUri).toList() }
+                if (spans.isNotEmpty()) {
+                    Log.d(TAG, "resolver: cache-first for $uriStr, ${spans.size} spans, pos=${dataSpec.position}")
+                    offlineFallbackCache[rawUri] = true
+                    val offSpec = dataSpec.buildUpon().setKey(rawUri).build()
+                    return@Resolver subrangeForSpan(spans, offSpec, dataSpec.position, *caches)
+                }
+            }
+
             val (streamUrl, contentLength) = if (offlineFallbackCache.containsKey(rawUri)) {
                 val offSpec = dataSpec.buildUpon().setKey(rawUri).build()
                 Log.d(TAG, "resolver: offline fallback for $uriStr")

@@ -514,6 +514,29 @@ class MainViewModel(
                             }
                         }
 
+                        // 2008 = posición fuera de rango — URL stale, caché parcial, upstream falló
+                        if ((error.errorCode == 2008) && _isOnline.value && connectedPlayer.currentMediaItemIndex in currentPlaylist.indices) {
+                            val item = currentPlaylist[connectedPlayer.currentMediaItemIndex]
+                            if (item is MusicItem.YouTube) {
+                                Log.w(TAG, "onPlayerError: position out of range online, purging stale cache for ${item.id}")
+                                _isBuffering.value = false
+                                _error.value = null
+                                val rawUri = "yt://${item.id}"
+                                streamResolver.removeContentLength(item.id)
+                                viewModelScope.launch(Dispatchers.IO) {
+                                    val spans = streamCache.getCachedSpans(rawUri).toList()
+                                    for (span in spans) {
+                                        try { streamCache.removeSpan(span) } catch (e: Exception) { Log.w(TAG, "removeSpan failed", e) }
+                                    }
+                                }
+                                cacheStatePrefs.edit().remove("pct_${item.id}").remove("spans_${item.id}").apply()
+                                _currentCachedSpans.value = emptyList()
+                                connectedPlayer.seekTo(connectedPlayer.currentMediaItemIndex, 0L)
+                                connectedPlayer.play()
+                                return
+                            }
+                        }
+
                         if (!_isOnline.value && connectedPlayer.currentMediaItemIndex in currentPlaylist.indices) {
                             val item = currentPlaylist[connectedPlayer.currentMediaItemIndex]
                             if (item is MusicItem.YouTube) {
