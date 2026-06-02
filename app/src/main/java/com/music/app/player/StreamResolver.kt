@@ -322,12 +322,6 @@ class StreamResolver(context: Context) {
             ?: spans.minByOrNull { it.position }
         if (targetSpan != null) {
             val spanEnd = targetSpan.position + targetSpan.length
-            val mutations = ContentMetadataMutations().apply {
-                ContentMetadataMutations.setContentLength(this, spanEnd)
-            }
-            for (cache in caches) {
-                cache.applyContentMetadataMutations(offSpec.uri.toString(), mutations)
-            }
             val clampedPos = safePos.coerceIn(targetSpan.position, spanEnd - 1L)
             val safeLen = (spanEnd - clampedPos).coerceAtLeast(1)
             Log.d(TAG, "resolver: offline subrange safePos=$safePos clampedPos=$clampedPos safeLen=$safeLen spanEnd=$spanEnd")
@@ -373,12 +367,23 @@ class StreamResolver(context: Context) {
             }
 
             val (streamUrl, contentLength) = try {
+                val oldMime = mimeTypes[uriStr]
                 val cached = resolveStreamUrl(uriStr)
                 if (cached.contentLength > 0L) {
                     setContentLength(uriStr, cached.contentLength)
                 }
                 lastResolvedUrl[uriStr] = cached.url
                 setLastResolvedUrl(uriStr, cached.url)
+                // Only purge when format changes (different mimeType) to prevent incompatible data
+                val newMime = mimeTypes[uriStr]
+                if (oldMime != null && oldMime != newMime) {
+                    Log.w(TAG, "resolver: format changed $oldMime → $newMime, purging stale cache for $uriStr")
+                    for (cache in caches) {
+                        for (span in cache.getCachedSpans(rawUri)) {
+                            try { cache.removeSpan(span) } catch (_: Exception) { Log.w(TAG, "resolver: failed to remove stale span") }
+                        }
+                    }
+                }
                 cached.url to cached.contentLength
             } catch (e: Exception) {
                 val spans = caches.flatMap { it.getCachedSpans(rawUri).toList() }
@@ -406,7 +411,6 @@ class StreamResolver(context: Context) {
                 .setUri(streamUrl.toUri())
                 .setKey(rawUri)
                 .build()
-                .subrange(0, if (contentLength > 0L) (contentLength - dataSpec.position).coerceAtLeast(1) else -1L)
         }
     }
 
