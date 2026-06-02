@@ -8,6 +8,7 @@ import androidx.media3.datasource.DataSpec
 import androidx.media3.datasource.ResolvingDataSource
 import androidx.media3.datasource.cache.Cache
 import androidx.media3.datasource.cache.CacheSpan
+import androidx.media3.datasource.cache.ContentMetadata
 import androidx.media3.datasource.cache.ContentMetadataMutations
 import com.grack.nanojson.JsonObject
 import com.grack.nanojson.JsonParser
@@ -34,6 +35,7 @@ class StreamResolver(context: Context) {
         }
     }
     private val offlineFallbackCache = ConcurrentHashMap<String, Boolean>()
+    private val bypassNextResolve = ConcurrentHashMap<String, Boolean>()
     val contentLengths = ConcurrentHashMap<String, Long>().apply {
         // Load persisted content lengths
         prefs.all.forEach { (key, value) ->
@@ -296,6 +298,10 @@ class StreamResolver(context: Context) {
         offlineFallbackCache.remove(rawUri)
     }
 
+    fun bypassCacheNext(rawUri: String) {
+        bypassNextResolve[rawUri] = true
+    }
+
     fun isOfflineFallback(rawUri: String): Boolean = offlineFallbackCache.containsKey(rawUri)
 
     fun markOfflineFallbackForCached(rawUris: Collection<String>, vararg caches: Cache) {
@@ -338,8 +344,10 @@ class StreamResolver(context: Context) {
                 return@Resolver dataSpec
             }
 
+            val skipCache = bypassNextResolve.remove(rawUri) == true
+
             // Cache-first: servir inmediatamente si hay datos en disco
-            if (!offlineFallbackCache.containsKey(rawUri)) {
+            if (!skipCache && !offlineFallbackCache.containsKey(rawUri)) {
                 val spans = caches.flatMap { it.getCachedSpans(rawUri).toList() }
                 if (spans.isNotEmpty()) {
                     Log.d(TAG, "resolver: cache-first for $uriStr, ${spans.size} spans, pos=${dataSpec.position}")
@@ -349,7 +357,7 @@ class StreamResolver(context: Context) {
                 }
             }
 
-            val (streamUrl, contentLength) = if (offlineFallbackCache.containsKey(rawUri)) {
+            val (streamUrl, contentLength) = if (!skipCache && offlineFallbackCache.containsKey(rawUri)) {
                 val offSpec = dataSpec.buildUpon().setKey(rawUri).build()
                 Log.d(TAG, "resolver: offline fallback for $uriStr")
                 val spans = caches.flatMap { it.getCachedSpans(rawUri).toList() }
@@ -374,6 +382,15 @@ class StreamResolver(context: Context) {
                     return@Resolver subrangeForSpan(spans, offSpec, dataSpec.position, *caches)
                 }
                 throw e
+            }
+
+            if (skipCache) {
+                val clearMeta = ContentMetadataMutations().apply {
+                    remove(ContentMetadata.KEY_CONTENT_LENGTH)
+                }
+                for (c in caches) {
+                    c.applyContentMetadataMutations(rawUri, clearMeta)
+                }
             }
 
             Log.d(TAG, "resolver: resolved URL, contentLength=$contentLength pos=${dataSpec.position}")

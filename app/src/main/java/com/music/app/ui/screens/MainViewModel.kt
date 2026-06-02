@@ -1079,6 +1079,17 @@ class MainViewModel(
         consecutiveErrors = 0
         lastErrorPosMs = -1L
         Log.d(TAG, "seekTo: position=$position lastSeekNano=$lastSeekNano")
+        val p = player
+        if (p != null && _isOnline.value && p.currentMediaItemIndex in currentPlaylist.indices) {
+            val item = currentPlaylist[p.currentMediaItemIndex]
+            if (item is MusicItem.YouTube) {
+                val maxCached = _currentCachedSpans.value.maxOfOrNull { it.endMs }
+                if (maxCached == null || position > maxCached) {
+                    Log.d(TAG, "seekTo: posición=$position fuera de caché ($maxCached), forzando upstream para ${item.id}")
+                    streamResolver.bypassCacheNext("yt://${item.id}")
+                }
+            }
+        }
         musicServiceConnection.seekTo(position)
         viewModelScope.launch { scanCurrentCacheSpans() }
     }
