@@ -33,11 +33,13 @@ fun MainScreen(
     currentItem: MusicItem?,
     isPlaying: Boolean,
     isBuffering: Boolean = false,
-    onSongClick: (MusicItem) -> Unit,
+    onSongClick: (MusicItem, List<MusicItem>?) -> Unit,
     onPlayerBarClick: () -> Unit,
+    onSettingsClick: () -> Unit = {},
     lastPlayedItem: MusicItem? = null,
     onSearchResultClick: (SearchResult) -> Unit = { viewModel.saveToLocal(it) },
     cachedTimeSpans: List<CachedTimeSpan> = emptyList(),
+    cachedPercentage: Float = -1f,
     currentPosition: Long = 0L,
     duration: Long = 0L,
     isOnline: Boolean = true,
@@ -66,10 +68,11 @@ fun MainScreen(
                     },
                     onClick = {
                         if (currentItem != null) onPlayerBarClick()
-                        else lastPlayedItem?.let { onSongClick(it) }
+                        else lastPlayedItem?.let { onSongClick(it, null) }
                     },
                     fallbackItem = lastPlayedItem,
                     cachedTimeSpans = cachedTimeSpans,
+                    cachedPercentage = cachedPercentage,
                     currentPositionMs = currentPosition,
                     durationMs = duration,
                     isOnline = isOnline
@@ -113,8 +116,8 @@ fun MainScreen(
         when (selectedTab) {
             0 -> HomeScreen(
                 viewModel = viewModel,
-                onSongClick = onSongClick,
-                modifier = Modifier.padding(padding)
+                onSongClick = { item, playlist -> onSongClick(item, playlist) },
+                onSettingsClick = onSettingsClick
             )
             1 -> SearchScreen(
                 viewModel = viewModel,

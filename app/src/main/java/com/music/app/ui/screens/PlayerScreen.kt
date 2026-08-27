@@ -19,13 +19,19 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.DownloadDone
+import androidx.compose.material.icons.filled.HourglassBottom
+import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.MusicNote
 import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.Repeat
+import androidx.compose.material.icons.filled.RepeatOne
 import androidx.compose.material.icons.filled.Save
+import androidx.compose.material.icons.filled.Shuffle
 import androidx.compose.material.icons.filled.SkipNext
 import androidx.compose.material.icons.filled.SkipPrevious
+import androidx.compose.material.icons.filled.Timer
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -62,6 +68,8 @@ fun PlayerScreen(
     currentPosition: Long,
     duration: Long,
     isDownloaded: Boolean,
+    isSaving: Boolean = false,
+    savingProgress: Float = 0f,
     cachedPercentage: Float = -1f,
     cachedTimeSpans: List<CachedTimeSpan> = emptyList(),
     isOnline: Boolean = true,
@@ -69,10 +77,19 @@ fun PlayerScreen(
     onSeek: (Long) -> Unit,
     onSkipNext: () -> Unit,
     onSkipPrevious: () -> Unit,
+    shuffleEnabled: Boolean = false,
+    repeatMode: Int = androidx.media3.common.Player.REPEAT_MODE_OFF,
+    onToggleShuffle: () -> Unit = {},
+    onCycleRepeat: () -> Unit = {},
     onToggleDownload: () -> Unit,
     onSaveToDevice: () -> Unit,
     onDismiss: () -> Unit,
     onDelete: () -> Unit,
+    sleepTimerMinutes: Int? = null,
+    onStartSleepTimer: (Int) -> Unit = {},
+    onCancelSleepTimer: () -> Unit = {},
+    queueSize: Int = 0,
+    onShowQueue: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     if (item == null) {
@@ -87,6 +104,7 @@ fun PlayerScreen(
 
     var showMenu by remember { mutableStateOf(false) }
     var showDeleteDialog by remember { mutableStateOf(false) }
+    var showSleepTimerDialog by remember { mutableStateOf(false) }
 
     if (showDeleteDialog) {
         AlertDialog(
@@ -106,6 +124,57 @@ fun PlayerScreen(
             dismissButton = {
                 TextButton(onClick = { showDeleteDialog = false }) {
                     Text("Cancel")
+                }
+            }
+        )
+    }
+
+    if (showSleepTimerDialog) {
+        val options = listOf(5, 10, 15, 30, 45, 60)
+        AlertDialog(
+            onDismissRequest = { showSleepTimerDialog = false },
+            title = { Text("Sleep Timer") },
+            text = {
+                if (sleepTimerMinutes != null) {
+                    Text("Timer active: $sleepTimerMinutes minutes remaining")
+                } else {
+                    Column {
+                        Text("Stop playback after:")
+                        Spacer(Modifier.height(8.dp))
+                        options.chunked(3).forEach { row ->
+                            Row(
+                                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                                modifier = Modifier.fillMaxWidth()
+                            ) {
+                                row.forEach { minutes ->
+                                    TextButton(
+                                        onClick = {
+                                            showSleepTimerDialog = false
+                                            onStartSleepTimer(minutes)
+                                        },
+                                        modifier = Modifier.weight(1f)
+                                    ) {
+                                        Text("${minutes}m")
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            confirmButton = {
+                if (sleepTimerMinutes != null) {
+                    TextButton(onClick = {
+                        showSleepTimerDialog = false
+                        onCancelSleepTimer()
+                    }) {
+                        Text("Cancel Timer", color = MaterialTheme.colorScheme.error)
+                    }
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showSleepTimerDialog = false }) {
+                    Text("Close")
                 }
             }
         )
@@ -136,57 +205,113 @@ fun PlayerScreen(
                 style = MaterialTheme.typography.titleSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
-            Box {
-                IconButton(onClick = { showMenu = true }) {
-                    Icon(
-                        Icons.Default.MoreVert,
-                        contentDescription = "More options",
-                        tint = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
+            Row {
+                if (queueSize > 1) {
+                    IconButton(onClick = onShowQueue) {
+                        Icon(
+                            Icons.Default.List,
+                            contentDescription = "Queue",
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
                 }
-                DropdownMenu(
-                    expanded = showMenu,
-                    onDismissRequest = { showMenu = false }
-                ) {
-                    if (item is MusicItem.YouTube) {
+                Box {
+                    IconButton(onClick = { showMenu = true }) {
+                        Icon(
+                            Icons.Default.MoreVert,
+                            contentDescription = "More options",
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                    DropdownMenu(
+                        expanded = showMenu,
+                        onDismissRequest = { showMenu = false }
+                    ) {
+                        if (item is MusicItem.YouTube) {
+                            DropdownMenuItem(
+                                text = {
+                                    Text(
+                                        if (isSaving) "Downloading ${(savingProgress * 100).toInt().coerceIn(0, 100)}%"
+                                        else if (isDownloaded) "Remove download" else "Download"
+                                    )
+                                },
+                                onClick = {
+                                    if (!isSaving) {
+                                        showMenu = false
+                                        onToggleDownload()
+                                    }
+                                },
+                                leadingIcon = {
+                                    Icon(
+                                        if (isSaving) Icons.Default.HourglassBottom
+                                        else if (isDownloaded) Icons.Default.DownloadDone else Icons.Default.Download,
+                                        contentDescription = null,
+                                        tint = if (isSaving) MaterialTheme.colorScheme.primary
+                                        else if (isDownloaded) MaterialTheme.colorScheme.primary
+                                        else MaterialTheme.colorScheme.onSurfaceVariant
+                                    )
+                                },
+                                enabled = !isSaving
+                            )
+                            DropdownMenuItem(
+                                text = {
+                                    Text(
+                                        if (isSaving) "Saving ${(savingProgress * 100).toInt().coerceIn(0, 100)}%"
+                                        else "Save to Device"
+                                    )
+                                },
+                                onClick = {
+                                    if (!isSaving) {
+                                        showMenu = false
+                                        onSaveToDevice()
+                                    }
+                                },
+                                leadingIcon = {
+                                    Icon(
+                                        if (isSaving) Icons.Default.HourglassBottom else Icons.Default.Save,
+                                        contentDescription = null,
+                                        tint = if (isSaving) MaterialTheme.colorScheme.primary
+                                        else MaterialTheme.colorScheme.onSurfaceVariant
+                                    )
+                                },
+                                enabled = !isSaving
+                            )
+                        }
                         DropdownMenuItem(
-                            text = { Text(if (isDownloaded) "Remove download" else "Download") },
+                            text = {
+                                Text(
+                                    if (sleepTimerMinutes != null) "Sleep Timer (${sleepTimerMinutes}m)"
+                                    else "Sleep Timer"
+                                )
+                            },
                             onClick = {
                                 showMenu = false
-                                onToggleDownload()
+                                showSleepTimerDialog = true
                             },
                             leadingIcon = {
                                 Icon(
-                                    if (isDownloaded) Icons.Default.DownloadDone else Icons.Default.Download,
-                                    contentDescription = null
+                                    Icons.Default.Timer,
+                                    contentDescription = null,
+                                    tint = if (sleepTimerMinutes != null) MaterialTheme.colorScheme.primary
+                                    else MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                             }
                         )
                         DropdownMenuItem(
-                            text = { Text("Save to Device") },
+                            text = { Text("Delete", color = MaterialTheme.colorScheme.error) },
                             onClick = {
                                 showMenu = false
-                                onSaveToDevice()
+                                showDeleteDialog = true
                             },
                             leadingIcon = {
-                                Icon(Icons.Default.Save, contentDescription = null)
+                                Icon(
+                                    Icons.Default.Delete,
+                                    contentDescription = null,
+                                    tint = MaterialTheme.colorScheme.error
+                                )
                             }
                         )
                     }
-                    DropdownMenuItem(
-                        text = { Text("Delete", color = MaterialTheme.colorScheme.error) },
-                        onClick = {
-                            showMenu = false
-                            showDeleteDialog = true
-                        },
-                        leadingIcon = {
-                            Icon(
-                                Icons.Default.Delete,
-                                contentDescription = null,
-                                tint = MaterialTheme.colorScheme.error
-                            )
-                        }
-                    )
                 }
             }
         }
@@ -258,7 +383,7 @@ fun PlayerScreen(
         } else if (cachedPercentage in 0f..1f) {
             val pct = (cachedPercentage * 100).toInt()
             Text(
-                text = if (cachedPercentage >= 1f) "Fully cached" else "$pct% cached",
+                text = if (cachedPercentage >= 1f) "Downloaded" else "$pct% cached",
                 style = MaterialTheme.typography.labelMedium,
                 color = MaterialTheme.colorScheme.primary
             )
@@ -299,6 +424,18 @@ fun PlayerScreen(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
         ) {
+            IconButton(onClick = onToggleShuffle) {
+                Icon(
+                    Icons.Default.Shuffle,
+                    contentDescription = if (shuffleEnabled) "Shuffle on" else "Shuffle off",
+                    modifier = Modifier.size(28.dp),
+                    tint = if (shuffleEnabled) MaterialTheme.colorScheme.primary
+                           else MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+
+            Spacer(Modifier.width(8.dp))
+
             IconButton(onClick = onSkipPrevious) {
                 Icon(
                     Icons.Default.SkipPrevious,
@@ -307,7 +444,7 @@ fun PlayerScreen(
                 )
             }
 
-            Spacer(Modifier.width(24.dp))
+            Spacer(Modifier.width(16.dp))
 
             Button(
                 onClick = onPlayPause,
@@ -330,13 +467,35 @@ fun PlayerScreen(
                 }
             }
 
-            Spacer(Modifier.width(24.dp))
+            Spacer(Modifier.width(16.dp))
 
             IconButton(onClick = onSkipNext) {
                 Icon(
                     Icons.Default.SkipNext,
                     contentDescription = "Next",
                     modifier = Modifier.size(48.dp)
+                )
+            }
+
+            Spacer(Modifier.width(8.dp))
+
+            val repeatIcon = when (repeatMode) {
+                androidx.media3.common.Player.REPEAT_MODE_ONE -> Icons.Default.RepeatOne
+                androidx.media3.common.Player.REPEAT_MODE_ALL -> Icons.Default.Repeat
+                else -> Icons.Default.Repeat
+            }
+            val repeatActive = repeatMode != androidx.media3.common.Player.REPEAT_MODE_OFF
+            IconButton(onClick = onCycleRepeat) {
+                Icon(
+                    repeatIcon,
+                    contentDescription = when (repeatMode) {
+                        androidx.media3.common.Player.REPEAT_MODE_ONE -> "Repeat one"
+                        androidx.media3.common.Player.REPEAT_MODE_ALL -> "Repeat all"
+                        else -> "Repeat off"
+                    },
+                    modifier = Modifier.size(28.dp),
+                    tint = if (repeatActive) MaterialTheme.colorScheme.primary
+                           else MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
         }

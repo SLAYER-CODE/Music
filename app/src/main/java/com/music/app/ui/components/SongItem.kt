@@ -2,6 +2,7 @@ package com.music.app.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,6 +15,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Cloud
+import androidx.compose.material.icons.filled.CloudSync
 import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.DownloadDone
 import androidx.compose.material.icons.filled.MusicNote
@@ -25,6 +27,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -67,7 +70,11 @@ fun SongItem(
             .alpha(contentAlpha)
             .then(
                 if (isDisabled) Modifier
-                else Modifier.clickable(onClick = onClick)
+                else Modifier.clickable(
+                    indication = null,
+                    interactionSource = remember { androidx.compose.foundation.interaction.MutableInteractionSource() },
+                    onClick = onClick
+                )
             )
             .padding(horizontal = 16.dp, vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically
@@ -165,13 +172,6 @@ fun SongItem(
                         color = MaterialTheme.colorScheme.primary
                     )
                 }
-                if (isCurrentItem && isPlaying) {
-                    Text(
-                        text = "PLAYING",
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.primary
-                    )
-                }
                 if (isLoading) {
                     Text(
                         text = "Loading...",
@@ -224,8 +224,11 @@ fun SongItem(
 fun SearchResultItem(
     result: SearchResult,
     isDownloaded: Boolean,
+    isSaving: Boolean = false,
+    savingProgress: Float = 0f,
     cachedPercentage: Float? = null,
     enabled: Boolean = true,
+    isSaved: Boolean = false,
     onClick: () -> Unit,
     onDownload: () -> Unit,
     modifier: Modifier = Modifier
@@ -236,7 +239,11 @@ fun SearchResultItem(
             .fillMaxWidth()
             .alpha(contentAlpha)
             .then(
-                if (enabled) Modifier.clickable(onClick = onClick)
+                if (enabled) Modifier.clickable(
+                    indication = null,
+                    interactionSource = remember { androidx.compose.foundation.interaction.MutableInteractionSource() },
+                    onClick = onClick
+                )
                 else Modifier
             )
             .padding(horizontal = 16.dp, vertical = 8.dp),
@@ -288,6 +295,19 @@ fun SearchResultItem(
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.error
                     )
+                } else if (isSaving) {
+                    val pct = (savingProgress * 100).toInt().coerceIn(0, 100)
+                    Text(
+                        text = "Saving $pct%",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                } else if (isSaved) {
+                    Text(
+                        text = "Saved",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.primary
+                    )
                 } else if (cachedPercentage != null && cachedPercentage > 0f) {
                     val pct = (cachedPercentage * 100).toInt().coerceAtMost(100)
                     val badgeColor = when {
@@ -303,14 +323,28 @@ fun SearchResultItem(
                 }
             }
         }
-        IconButton(
-            onClick = { if (enabled) onDownload() }
-        ) {
+        if (isSaved) {
             Icon(
-                imageVector = if (isDownloaded) Icons.Filled.DownloadDone else Icons.Filled.Download,
-                contentDescription = if (isDownloaded) "Downloaded" else "Download",
-                tint = if (isDownloaded) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
+                imageVector = Icons.Filled.DownloadDone,
+                contentDescription = "Saved to device",
+                tint = MaterialTheme.colorScheme.primary
             )
+        } else if (isSaving) {
+            Icon(
+                imageVector = Icons.Filled.CloudSync,
+                contentDescription = "Downloading",
+                tint = MaterialTheme.colorScheme.primary
+            )
+        } else {
+            IconButton(
+                onClick = { if (enabled) onDownload() }
+            ) {
+                Icon(
+                    imageVector = if (isDownloaded) Icons.Filled.DownloadDone else Icons.Filled.Download,
+                    contentDescription = if (isDownloaded) "Downloaded" else "Download",
+                    tint = if (isDownloaded) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
         }
     }
 }

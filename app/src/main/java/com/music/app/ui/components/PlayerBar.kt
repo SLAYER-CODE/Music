@@ -16,10 +16,9 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MusicNote
 import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.PlayArrow
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -44,6 +43,7 @@ fun PlayerBar(
     modifier: Modifier = Modifier,
     fallbackItem: MusicItem? = null,
     cachedTimeSpans: List<CachedTimeSpan> = emptyList(),
+    cachedPercentage: Float = -1f,
     currentPositionMs: Long = 0L,
     durationMs: Long = 0L,
     isOnline: Boolean = true
@@ -99,13 +99,42 @@ fun PlayerBar(
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
+                if (item is MusicItem.Local) {
+                    Text(
+                        text = "Local",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                } else if (isBuffering) {
+                    Text(
+                        text = "Loading...",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                } else if (cachedPercentage in 0f..1f) {
+                    val pct = (cachedPercentage * 100).toInt()
+                    Text(
+                        text = if (cachedPercentage >= 1f) "Downloaded" else "$pct% cached",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                }
+                CachedSeekBar(
+                    currentPositionMs = currentPositionMs,
+                    durationMs = durationMs,
+                    cachedSpans = cachedTimeSpans,
+                    isOnline = isOnline,
+                    isLocal = item is MusicItem.Local,
+                    enabled = false,
+                    onSeek = {},
+                    trackHeight = 2.dp,
+                    thumbRadius = 0.dp
+                )
             }
             if (displayItem != null) {
-                Button(
+                IconButton(
                     onClick = onPlayPause,
-                    modifier = Modifier.size(40.dp),
-                    shape = RoundedCornerShape(50),
-                    contentPadding = ButtonDefaults.TextButtonContentPadding
+                    modifier = Modifier.size(40.dp)
                 ) {
                     if (isBuffering) {
                         CircularProgressIndicator(
@@ -123,15 +152,5 @@ fun PlayerBar(
                 }
             }
         }
-        CachedSeekBar(
-            currentPositionMs = currentPositionMs,
-            durationMs = durationMs,
-            cachedSpans = cachedTimeSpans,
-            isOnline = isOnline,
-            isLocal = item is MusicItem.Local,
-            onSeek = {},
-            trackHeight = 2.dp,
-            thumbRadius = 0.dp
-        )
     }
 }

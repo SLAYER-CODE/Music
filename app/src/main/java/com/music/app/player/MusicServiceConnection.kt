@@ -110,6 +110,48 @@ class MusicServiceConnection(private val context: Context) {
         mediaController?.seekToPreviousMediaItem()
     }
 
+    fun replaceTimelineEntry(oldMediaId: String, new: MediaItemTriple) {
+        mediaController?.let { c ->
+            val idx = (0 until c.mediaItemCount).firstOrNull {
+                c.getMediaItemAt(it).mediaId == oldMediaId
+            }
+            if (idx == null) {
+                Log.w(TAG, "replaceTimelineEntry: $oldMediaId not found in timeline")
+                return
+            }
+            val curIdx = c.currentMediaItemIndex
+            val curPos = c.currentPosition.coerceAtLeast(0L)
+            val wasPlaying = c.playWhenReady
+            val newItem = MediaItem.Builder()
+                .setMediaId(new.uri)
+                .setUri(new.uri)
+                .setMediaMetadata(
+                    MediaMetadata.Builder().setTitle(new.title).setArtist(new.artist).build()
+                )
+                .build()
+            val items = (0 until c.mediaItemCount).map { i ->
+                if (i == idx) newItem else c.getMediaItemAt(i)
+            }
+            c.setMediaItems(items, curIdx, if (curPos > 0L) curPos else androidx.media3.common.C.TIME_UNSET)
+            c.prepare()
+            if (wasPlaying) c.play()
+            Log.d(TAG, "replaceTimelineEntry: $oldMediaId -> ${new.uri}")
+        }
+    }
+
+    fun setShuffleModeEnabled(enabled: Boolean) {
+        Log.d(TAG, "setShuffleModeEnabled: $enabled")
+        mediaController?.shuffleModeEnabled = enabled
+    }
+
+    fun setRepeatMode(mode: Int) {
+        Log.d(TAG, "setRepeatMode: $mode")
+        mediaController?.repeatMode = mode
+    }
+
+    val currentMediaItemIndex: Int
+        get() = mediaController?.currentMediaItemIndex ?: 0
+
     fun disconnect() {
         Log.d(TAG, "disconnect: releasing controller")
         mediaController?.run {

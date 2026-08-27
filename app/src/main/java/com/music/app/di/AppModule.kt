@@ -16,6 +16,7 @@ import com.music.app.player.cacheModule
 import com.music.app.ui.screens.MainViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.module.dsl.viewModel
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
 val appModule = module {
@@ -32,7 +33,7 @@ val appModule = module {
 
     single<DownloadHelper> {
         val ctx = androidContext()
-        val dsf = get<androidx.media3.datasource.ResolvingDataSource.Factory>()
+        val dsf = get<androidx.media3.datasource.DataSource.Factory>(named("downloadDsf"))
         val cache = get<androidx.media3.datasource.cache.Cache>(com.music.app.player.CacheType.DOWNLOAD)
         DownloadHelperImpl(dsf, ctx, cache).also { DownloadHelperImpl.instance = it }
     }
@@ -40,7 +41,7 @@ val appModule = module {
     viewModel {
         MainViewModel(
             get(), get(), get(), get(), get(), get(),
-            get<Cache>(CacheType.CACHE), get(), androidContext()
+            get<Cache>(CacheType.CACHE), get(), androidContext(), get()
         )
     }
 }

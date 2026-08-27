@@ -39,6 +39,7 @@ fun CachedSeekBar(
     isLocal: Boolean = false,
     onSeek: (Long) -> Unit,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     trackHeight: Dp = 6.dp,
     thumbRadius: Dp = 8.dp
 ) {
@@ -81,51 +82,54 @@ fun CachedSeekBar(
     fun isCachedPosition(timeMs: Long): Boolean =
         isLocal || (timeMs >= 0L && cachedSpans.any { timeMs in it.startMs..it.endMs })
 
+    val gestures = if (!enabled) Modifier else Modifier
+        .pointerInput(isOnline, cachedSpans, durationMs, isLocal) {
+            detectTapGestures(onTap = { offset ->
+                if (durationMs <= 0L) return@detectTapGestures
+                val fraction = (offset.x / size.width).coerceIn(0f, 1f)
+                val targetMs = (fraction * durationMs).roundToLong().coerceIn(0, durationMs)
+                val inSpan = cachedSpans.any { targetMs in it.startMs..it.endMs }
+                Log.d(TAG, "tap: x=${offset.x} durationMs=$durationMs fraction=$fraction targetMs=$targetMs spans=${cachedSpans.map{"${it.startMs}..${it.endMs}"}} inSpan=$inSpan")
+                if (!isOnline && !isLocal && !inSpan)
+                    return@detectTapGestures
+                val seekMs = if (isOnline || isLocal) targetMs
+                    else resolveSeekPosition(targetMs, cachedSpans)
+                Log.d(TAG, "tap: resolveSeekPosition -> seekMs=$seekMs")
+                dragFraction = fraction
+                pendingSeekTargetMs = seekMs
+                onSeek(seekMs)
+            })
+        }
+        .pointerInput(isOnline, cachedSpans, durationMs, isLocal) {
+            detectDragGestures(onDrag = { change, _ ->
+                change.consume()
+                if (durationMs <= 0L) return@detectDragGestures
+                val fraction = (change.position.x / size.width).coerceIn(0f, 1f)
+                val targetMs = (fraction * durationMs).roundToLong().coerceIn(0, durationMs)
+                if (isOnline || isLocal || cachedSpans.any { targetMs in it.startMs..it.endMs }) {
+                    dragFraction = fraction
+                    if (isOnline || isLocal) {
+                        onSeek(targetMs)
+                    }
+                }
+            }, onDragEnd = {
+                if (dragFraction >= 0f) {
+                    val targetMs = (dragFraction * durationMs).roundToLong().coerceIn(0, durationMs)
+                    if (isOnline || isLocal || cachedSpans.any { targetMs in it.startMs..it.endMs }) {
+                        val seekMs = if (isOnline || isLocal) targetMs
+                            else resolveSeekPosition(targetMs, cachedSpans)
+                        pendingSeekTargetMs = seekMs
+                        onSeek(seekMs)
+                    }
+                }
+            })
+        }
+
     Canvas(
         modifier = modifier
             .fillMaxWidth()
             .height(trackHeight + thumbRadius * 2)
-            .pointerInput(isOnline, cachedSpans, durationMs, isLocal) {
-                detectTapGestures(onTap = { offset ->
-                    if (durationMs <= 0L) return@detectTapGestures
-                    val fraction = (offset.x / size.width).coerceIn(0f, 1f)
-                    val targetMs = (fraction * durationMs).roundToLong().coerceIn(0, durationMs)
-                    val inSpan = cachedSpans.any { targetMs in it.startMs..it.endMs }
-                    Log.d(TAG, "tap: x=${offset.x} durationMs=$durationMs fraction=$fraction targetMs=$targetMs spans=${cachedSpans.map{"${it.startMs}..${it.endMs}"}} inSpan=$inSpan")
-                    if (!isOnline && !isLocal && !inSpan)
-                        return@detectTapGestures
-                    val seekMs = if (isOnline || isLocal) targetMs
-                        else resolveSeekPosition(targetMs, cachedSpans)
-                    Log.d(TAG, "tap: resolveSeekPosition -> seekMs=$seekMs")
-                    dragFraction = fraction
-                    pendingSeekTargetMs = seekMs
-                    onSeek(seekMs)
-                })
-            }
-            .pointerInput(isOnline, cachedSpans, durationMs, isLocal) {
-                detectDragGestures(onDrag = { change, _ ->
-                    change.consume()
-                    if (durationMs <= 0L) return@detectDragGestures
-                    val fraction = (change.position.x / size.width).coerceIn(0f, 1f)
-                    val targetMs = (fraction * durationMs).roundToLong().coerceIn(0, durationMs)
-                    if (isOnline || isLocal || cachedSpans.any { targetMs in it.startMs..it.endMs }) {
-                        dragFraction = fraction
-                        if (isOnline || isLocal) {
-                            onSeek(targetMs)
-                        }
-                    }
-                }, onDragEnd = {
-                    if (dragFraction >= 0f) {
-                        val targetMs = (dragFraction * durationMs).roundToLong().coerceIn(0, durationMs)
-                        if (isOnline || isLocal || cachedSpans.any { targetMs in it.startMs..it.endMs }) {
-                            val seekMs = if (isOnline || isLocal) targetMs
-                                else resolveSeekPosition(targetMs, cachedSpans)
-                            pendingSeekTargetMs = seekMs
-                            onSeek(seekMs)
-                        }
-                    }
-                })
-            }
+            .then(gestures)
     ) {
         val thumbR = thumbRadius.toPx()
         val trackTop = thumbR

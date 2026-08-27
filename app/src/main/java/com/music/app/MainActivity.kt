@@ -27,6 +27,11 @@ import com.music.app.data.model.MusicItem
 import com.music.app.ui.screens.MainScreen
 import com.music.app.ui.screens.MainViewModel
 import com.music.app.ui.screens.PlayerScreen
+import com.music.app.ui.screens.SettingsScreen
+import com.music.app.ui.screens.StorageScreen
+import com.music.app.ui.screens.LocationPickerScreen
+import com.music.app.ui.screens.ExportScreen
+import com.music.app.ui.screens.QueueScreen
 import com.music.app.ui.theme.MusicTheme
 import org.koin.compose.koinInject
 
@@ -91,7 +96,18 @@ class MainActivity : ComponentActivity() {
                     val isOnline by vm.isOnline.collectAsState()
                     val isBuffering by vm.isBuffering.collectAsState()
                     val cachedTimeSpans by vm.currentCachedSpans.collectAsState()
+                    val shuffleEnabled by vm.shuffleEnabled.collectAsState()
+                    val repeatMode by vm.repeatMode.collectAsState()
+                    val savedSongs by vm.savedSongs.collectAsState()
+                    val sleepTimerMinutes by vm.sleepTimerMinutes.collectAsState()
+                    val currentPlaylist by vm.currentPlaylistFlow.collectAsState()
                     var showPlayer by remember { mutableStateOf(false) }
+                    var showSettings by remember { mutableStateOf(false) }
+                    var showStorage by remember { mutableStateOf(false) }
+                    var showLocation by remember { mutableStateOf(false) }
+                    var showExport by remember { mutableStateOf(false) }
+                    var showQueue by remember { mutableStateOf(false) }
+                    val saveLocation by vm.saveLocation.collectAsState()
 
                     LaunchedEffect(error) {
                         if (error != null) {
@@ -111,7 +127,55 @@ class MainActivity : ComponentActivity() {
                         showPlayer = false
                     }
 
-                    if (showPlayer && currentItem != null) {
+                    BackHandler(enabled = showSettings) {
+                        showSettings = false
+                    }
+
+                    BackHandler(enabled = showStorage) {
+                        showStorage = false
+                    }
+
+                    BackHandler(enabled = showLocation) {
+                        showLocation = false
+                    }
+
+                    BackHandler(enabled = showExport) {
+                        showExport = false
+                    }
+
+                    BackHandler(enabled = showQueue) {
+                        showQueue = false
+                    }
+
+                    if (showQueue) {
+                        QueueScreen(
+                            queue = currentPlaylist,
+                            currentIndex = currentPlaylist.indexOfFirst { it.id == currentItem?.id }.coerceAtLeast(0),
+                            onBack = { showQueue = false },
+                            onRemove = { vm.removeFromQueue(it) },
+                            onMove = { from, to -> vm.moveInQueue(from, to) }
+                        )
+                    } else if (showExport) {
+                        ExportScreen(onBack = { showExport = false })
+                    } else if (showLocation) {
+                        LocationPickerScreen(
+                            currentPath = saveLocation,
+                            onPathSelected = { vm.setSaveLocation(it) },
+                            onBack = { showLocation = false }
+                        )
+                    } else if (showStorage) {
+                        StorageScreen(viewModel = vm, onBack = { showStorage = false })
+                    } else if (showSettings) {
+                        SettingsScreen(
+                            viewModel = vm,
+                            onBack = { showSettings = false },
+                            onStorageClick = { showStorage = true },
+                            onLocationClick = { showLocation = true },
+                            onExportClick = { showExport = true }
+                        )
+                    } else if (showPlayer && currentItem != null) {
+                        val saveSt = if (currentItem is MusicItem.YouTube)
+                            vm.saveState((currentItem as MusicItem.YouTube).song.id) else false to 0f
                         PlayerScreen(
                             item = currentItem,
                             isPlaying = isPlaying,
@@ -119,7 +183,9 @@ class MainActivity : ComponentActivity() {
                             currentPosition = currentPosition,
                             duration = duration,
                             isDownloaded = currentItem is MusicItem.YouTube &&
-                                    downloads.containsKey((currentItem as MusicItem.YouTube).song.id),
+                                    downloads.containsKey("yt://${(currentItem as MusicItem.YouTube).song.id}"),
+                            isSaving = saveSt.first,
+                            savingProgress = saveSt.second,
                             cachedPercentage = cachedPercentages[currentItem?.id] ?: -1f,
                             cachedTimeSpans = cachedTimeSpans,
                             isOnline = isOnline,
@@ -127,6 +193,10 @@ class MainActivity : ComponentActivity() {
                             onSeek = { vm.seekTo(it) },
                             onSkipNext = { vm.skipNext() },
                             onSkipPrevious = { vm.skipPrevious() },
+                            shuffleEnabled = shuffleEnabled,
+                            repeatMode = repeatMode,
+                            onToggleShuffle = { vm.toggleShuffle() },
+                            onCycleRepeat = { vm.cycleRepeatMode() },
                             onToggleDownload = {
                                 val item = currentItem
                                 if (item is MusicItem.YouTube) {
@@ -153,9 +223,15 @@ class MainActivity : ComponentActivity() {
                                     }
                                     vm.deleteMusicItem(item)
                                 }
-                            }
+                            },
+                            sleepTimerMinutes = sleepTimerMinutes,
+                            onStartSleepTimer = { vm.startSleepTimer(it) },
+                            onCancelSleepTimer = { vm.cancelSleepTimer() },
+                            queueSize = currentPlaylist.size,
+                            onShowQueue = { showQueue = true }
                         )
                     } else {
+                        val cachedPercentage = currentItem?.let { cachedPercentages[it.id] } ?: -1f
                         MainScreen(
                             viewModel = vm,
                             currentItem = currentItem,
@@ -163,17 +239,30 @@ class MainActivity : ComponentActivity() {
                             isBuffering = isBuffering,
                             lastPlayedItem = lastPlayedItem,
                             cachedTimeSpans = cachedTimeSpans,
+                            cachedPercentage = cachedPercentage,
                             currentPosition = currentPosition,
                             duration = duration,
                             isOnline = isOnline,
-                            onSongClick = { item ->
-                                vm.playMusicItem(item)
-                                showPlayer = true
+                            onSettingsClick = { showSettings = true },
+                            onSongClick = { item, playlist ->
+                                if (item.id == currentItem?.id) {
+                                    showPlayer = true
+                                } else {
+                                    vm.playMusicItem(item, playlist)
+                                }
                             },
                             onPlayerBarClick = { showPlayer = true },
                             onSearchResultClick = { result ->
+                                if (vm.isSongFullySaved(result.id)) {
+                                    vm.playSavedSong(result.id)
+                                    return@MainScreen
+                                }
+                                val isCached = (cachedPercentages[result.id] ?: 0f) > 0f ||
+                                        downloads.containsKey(result.id)
                                 vm.saveToLocal(result)
-                                showPlayer = true
+                                if (!isCached) {
+                                    showPlayer = true
+                                }
                             }
                         )
                     }

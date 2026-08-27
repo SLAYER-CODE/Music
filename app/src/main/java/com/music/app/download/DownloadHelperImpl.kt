@@ -23,19 +23,21 @@ import java.util.concurrent.Executors
 class DownloadHelperImpl(
     private val dataSourceFactory: DataSource.Factory,
     private val context: Context,
-    private val downloadCache: Cache
+    private val downloadCacheField: Cache
 ) : DownloadHelper {
 
     private val executor = Executors.newCachedThreadPool()
 
     override val downloads = MutableStateFlow<Map<String, Download>>(emptyMap())
 
+    override val downloadCache: Cache get() = downloadCacheField
+
     override val downloadManager: DownloadManager by lazy {
         Log.d(TAG, "downloadManager lazy init: creating DownloadManager")
         val manager = DownloadManager(
             context,
             StandaloneDatabaseProvider(context),
-            downloadCache,
+            downloadCacheField,
             dataSourceFactory,
             executor
         )

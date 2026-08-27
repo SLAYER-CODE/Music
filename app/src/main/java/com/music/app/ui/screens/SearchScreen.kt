@@ -55,6 +55,7 @@ fun SearchScreen(
     val error by viewModel.error.collectAsState()
     val downloads by viewModel.downloads.collectAsState()
     val cachedPercentages by viewModel.cachedPercentages.collectAsState()
+    val savedSongs by viewModel.savedSongs.collectAsState()
     val snackbarHostState = remember { SnackbarHostState() }
 
     LaunchedEffect(query) {
@@ -174,11 +175,15 @@ fun SearchScreen(
                         items(searchResults, key = { it.id }) { result ->
                             val cached = cachedPercentages[result.id] ?: 0f
                             val itemEnabled = isOnline || cached > 0f
+                            val isSaved = viewModel.isSongFullySaved(result.id)
                             SearchResultItem(
                                 result = result,
-                                isDownloaded = downloads.containsKey(result.id),
+                                isDownloaded = !isSaved && downloads.containsKey("yt://${result.id}"),
+                                isSaving = viewModel.saveState(result.id).first,
+                                savingProgress = viewModel.saveState(result.id).second,
                                 cachedPercentage = cachedPercentages[result.id],
                                 enabled = itemEnabled,
+                                isSaved = isSaved,
                                 onClick = {
                                     if (itemEnabled) {
                                         android.util.Log.d("SearchScreen", "clicked result: ${result.id}")
@@ -186,8 +191,10 @@ fun SearchScreen(
                                     }
                                 },
                                 onDownload = {
-                                    android.util.Log.d("SearchScreen", "download toggle: ${result.id}")
-                                    viewModel.toggleDownload(result.id, result.title)
+                                    if (!isSaved) {
+                                        android.util.Log.d("SearchScreen", "download toggle: ${result.id}")
+                                        viewModel.toggleDownload(result.id, result.title)
+                                    }
                                 }
                             )
                         }

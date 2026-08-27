@@ -3,6 +3,7 @@ package com.music.app.player
 import android.content.Context
 import android.util.Log
 import androidx.media3.database.StandaloneDatabaseProvider
+import androidx.media3.datasource.DataSource
 import androidx.media3.datasource.DefaultDataSource
 import androidx.media3.datasource.ResolvingDataSource
 import androidx.media3.datasource.cache.Cache
@@ -18,6 +19,7 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.qualifier.Qualifier
 import org.koin.core.qualifier.QualifierValue
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import org.schabi.newpipe.extractor.NewPipe
 import org.schabi.newpipe.extractor.downloader.Downloader
@@ -121,4 +123,12 @@ val cacheModule = module {
         ResolvingDataSource.Factory(cacheFactory, resolver.resolver(streamCache, downloadCache))
     }
 
+    /** Upstream for the Media3 DownloadManager: full-URL resolution, no cache subranges. */
+    single<DataSource.Factory>(named("downloadDsf")) {
+        val defaultFactory = get<DefaultDataSource.Factory>()
+        val resolver = get<StreamResolver>()
+        get<Downloader>() // ensure NewPipe is initialized before resolving streams
+        Log.d("CacheModule", "Creating download DataSource.Factory with downloadResolver")
+        ResolvingDataSource.Factory(defaultFactory, resolver.downloadResolver())
+    }
 }

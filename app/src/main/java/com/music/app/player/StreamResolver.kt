@@ -290,6 +290,8 @@ class StreamResolver(context: Context) {
         result
     }
 
+    fun resolveStreamUrlPublic(songId: String): CachedStream = resolveStreamUrl(songId)
+
     fun markOfflineFallback(rawUri: String) {
         offlineFallbackCache[rawUri] = true
     }
@@ -339,6 +341,31 @@ class StreamResolver(context: Context) {
         }
         return offSpec
     }
+
+    /**
+     * Resolver for the DOWNLOAD pipeline only. Unlike [resolver], it never
+     * serves cache-first subranges: the Media3 downloader treats a short
+     * DataSpec length as end-of-stream, which falsely completed downloads at
+     * the playback-cache frontier. Here every spec resolves to the full CDN
+     * URL (same shared urlCache → same rendition as playback); range handling
+     * and resume stay with CacheDataSource + the CDN.
+     */
+    fun downloadResolver(): ResolvingDataSource.Resolver =
+        ResolvingDataSource.Resolver { dataSpec ->
+            val rawUri = dataSpec.uri.toString()
+            if (!rawUri.startsWith("yt://")) return@Resolver dataSpec
+            val id = rawUri.removePrefix("yt://")
+            try {
+                val cached = resolveStreamUrl(id)
+                if (cached.contentLength > 0L) setContentLength(id, cached.contentLength)
+                // Keeps DataSpec.key (customCacheKey = yt://id) so spans still
+                // land under the unified key.
+                dataSpec.buildUpon().setUri(cached.url).build()
+            } catch (e: Exception) {
+                Log.w(TAG, "downloadResolver: resolve failed for $id", e)
+                dataSpec // fails downstream; DownloadManager retries per minRetryCount
+            }
+        }
 
     fun resolver(vararg caches: Cache): ResolvingDataSource.Resolver {
         return ResolvingDataSource.Resolver { dataSpec ->

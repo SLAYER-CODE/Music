@@ -1,6 +1,7 @@
 package com.music.app.download
 
 import androidx.media3.common.util.UnstableApi
+import androidx.media3.datasource.cache.Cache
 import androidx.media3.exoplayer.offline.Download
 import androidx.media3.exoplayer.offline.DownloadManager
 import kotlinx.coroutines.flow.Flow
@@ -15,6 +16,7 @@ interface DownloadHelper {
 
     val downloadManager: DownloadManager
     val downloads: MutableStateFlow<Map<String, Download>>
+    val downloadCache: Cache
 
     fun getDownload(songId: String): Flow<Download?>
 
